@@ -1,10 +1,11 @@
+
 var Page = require('../src/components/Page')
 var FileUtil = require('../src/utils/file')
 
-
 let fileUtil = new FileUtil(__dirname + '/dist/')
 let data = {
-    name: 'manager',
+    key: 'manager',
+    type: 'page',
     children: [
         {
             type: 'form',
@@ -14,14 +15,16 @@ let data = {
                 type: 'form-item', // 比如select/dropdown/dateRange
                 label: '国家：', // 标签名称
                 key: 'country', // el-form-item对应的prop属性
-                attrs: {  // 对应的element-ui的属性
-                    rules: []
-                },
                 children: [{
-                        type: 'select', // 比如select/dropdown/dateRange
-                        key: 'country', // el-form-item对应的prop属性
+                    key: 'country', // el-form-item对应的prop属性
+                    type: 'select', // 比如select/dropdown/dateRange
                         // 数据集合对应的属性
-                        data: [{label: '英国',value: 'English'}, {label: '美国',value: 'American'}], // 静态数据
+                    data: [{label: '英国',value: 'English'}, {label: '美国',value: 'American'}], // 静态数据
+                    url: '/country/list',
+                    attrs: {  // 对应的element-ui的属性
+                        disabled: true,
+                        style: 'background-color: red'
+                    },
                 }]
             }]
         },
@@ -59,7 +62,8 @@ let data = {
 
 function generateCode(){
     let page = new Page(data)
-    fileUtil.write(data.name + '.vue', page.template)
+    page.init()
+    fileUtil.write(data.key + '.vue', page.generateCode())
 }
 
 generateCode()

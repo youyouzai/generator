@@ -1,4 +1,6 @@
+
 var Component = require('../Component')
+var manager = require('../../utils/componentManager')
 /**
     type: 'dropdown', // 比如select/dropdown/dateRange
     label: 'Item 标签：', // 标签名称
@@ -14,22 +16,41 @@ var Component = require('../Component')
     valueField: 'value', // value对应的显示字段
  */
 class Select extends Component{
-    constructor(options){
-        super(options)
-        this.parent = null
+    constructor(options, parent){
+        super(options, parent)
         this.type = 'select'
+        this.async = Boolean(options.url)
     }
     getTemplateHtml(){
-        let item = this.options
-        let form = this.parent.parent.options
+        let options = this.options
 
-        let label = item.labelField || 'label'
-        let value = item.valueField || 'value'
-        let formKey = form.model
-        let dataSourceKey = formKey + 'DataSource'
-        return `<el-select v-model="${formKey}.${item.prop}" ${getAttrsHtml(item.attrs)}>
-                    <el-option v-for="(item, index) in ${dataSourceKey}.${item.prop}" :key="item.${value}" :label="item.${label}" :value="item.${value}"></el-option>
+        let label = options.labelField || 'label'
+        let value = options.valueField || 'value'
+        return `<el-select v-model="${options.key}" ${manager.getAttrsHtml(options.attrs)}>
+                    <el-option v-for="item in ${this.getDataSourceModelName()}" :key="item.${value}" :label="item.${label}" :value="item.${value}"></el-option>
                 </el-select>`   
+    }
+    initInjectData(target){
+        let model = this.getDataSourceModelName()
+        target[model] = this.options.data || []
+    }
+    initInjectMethods(target){
+        if(!this.async) return;
+        target.push(this.getGetRequestHtml())
+    }
+    initInjectMounted(target){
+        if(!this.async) return;
+        let html = `this.${this.getRequestFunctionName()}()`
+        target.push(html)
+    }
+    getGetRequestHtml(){
+        let options = this.options
+        let html = `${this.getRequestFunctionName()}(){
+            this.$http.get('${options.url}').then(res => {
+                this.${this.getDataSourceModelName()} = res.${options.dataField || 'data'}
+            });
+        },`
+        return html
     }
 }
 module.exports = Select

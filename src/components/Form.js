@@ -2,10 +2,9 @@ var Component = require('./Component')
 var FormItem = require('./FormItem')
 var manager = require('../utils/componentManager')
 class Form extends Component{
-    constructor(options){// 根据columns初始化children
-        manager.initChildrenByField(options, 'items')
-        super(options)
-        this.parent = ''
+    constructor(options, parent){// 根据columns初始化children
+        manager.initChildrenByField(options, 'items')   
+        super(options, parent)
     }
     getChildComponentByType(type){
         let map = {
@@ -20,11 +19,18 @@ class Form extends Component{
             ${this.getChildrenTemplateHtml()}
         </el-form>`
     }
-    getDataHtml(){
+    initInjectData(target){
         let model = this.getModelName()
-        return `${model}: {
-            ${this.getChildrenDataHtml()}
-        },`
+
+        let formObj = {}
+        for(let i = 0; i< this.children.length; i++){
+            let child = this.children[i]
+            formObj[child.key] = child.defaultValue || ''
+        }
+        target[model] = formObj
+    }
+    initInjectMethod(){
+
     }
 }
 module.exports = Form

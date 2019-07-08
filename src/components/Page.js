@@ -2,6 +2,7 @@ var Component = require('./Component')
 var Table = require('./Table')
 var Form = require('./Form')
 var Pagination = require('../components/Pagination')
+var manager = require('../utils/componentManager')
 /**
     key: 'manager',
     children: [
@@ -20,10 +21,15 @@ var Pagination = require('../components/Pagination')
     ]  
  */
 class Page extends Component{
-    constructor(options){
-        super(options)
-        this.parent = null
+    constructor(options, parent){ 
+        super(options, parent)
         this.type = 'page'
+        this.injectData ={}
+        this.injectMethods = []
+        this.injectMounted = []
+    }
+    completed(){
+        
     }
     getChildComponentByType(type){
         let map = {
@@ -47,6 +53,9 @@ class Page extends Component{
                 data() {
                     return ${this.getDataHtml()}
                 },
+                mounted(){
+                    ${this.getMountedHtml()}
+                },
                 methods: {
                     ${this.getMethodsHtml()}
                 }
@@ -60,13 +69,13 @@ class Page extends Component{
         return ''
     }
     getDataHtml(){
-        return `{
-            ${this.getChildrenDataHtml()}
-        }`
+        return manager.getDataHtml(this.injectData)
+    }
+    getMountedHtml(){
+        return manager.getMountedHtml(this.injectMounted)
     }
     getMethodsHtml(){
-        return ''
+        return manager.getMethodsHtml(this.injectMethods)
     }
-  
 }
 module.exports = Page
