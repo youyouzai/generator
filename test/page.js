@@ -4,7 +4,8 @@ var FileUtil = require('../src/utils/file')
 
 let fileUtil = new FileUtil(__dirname + '/dist/')
 let data = {
-    name: 'manager',
+    key: 'manager',
+    type: 'page',
     children: [
         {
             type: 'form',
@@ -59,7 +60,8 @@ let data = {
 
 function generateCode(){
     let page = new Page(data)
-    fileUtil.write(data.name + '.vue', page.template)
+    page.init()
+    fileUtil.write(data.key + '.vue', page.generateCode())
 }
 
 generateCode()

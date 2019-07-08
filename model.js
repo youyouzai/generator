@@ -61,6 +61,7 @@ var tabData = [
 ]
 var pageData = {
     key: 'manager',
+    type: 'page',
     children: [
         {
             type: 'table',

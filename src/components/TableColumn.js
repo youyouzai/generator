@@ -20,18 +20,17 @@ var Span = require('./tableColumns/Span')
     }
  */
 class TableColumn extends Component{
-    constructor(options){
-        super(options)
-        this.parent = null
+    constructor(options, parent){
+        super(options, parent)
         this.type = 'table-column'
     }
     getChildComponentByType(type){
         let map = {
-            'table-column-anchor': Anchor,
-            'table-column-buttons': Buttons,
-            'table-column-icon': Icon,
-            'table-column-img': Img,
-            'table-column-span': Span,
+            'anchor': Anchor,
+            'buttons': Buttons,
+            'icon': Icon,
+            'img': Img,
+            'span': Span,
         }
         return map[type]
     }

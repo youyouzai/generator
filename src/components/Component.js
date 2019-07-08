@@ -1,16 +1,25 @@
 class Component{
-    constructor(options){
+    constructor(options, parent){
+        this.parent = parent
         this.options = options
         this.children = null
-        this.template = ''
-        this.childMap = {
-
-        }
-        this.init()
     }
     init(){
-        this.initChildren()
-        this.template = this.getTemplateHtml()
+        this.initChildren()     
+        this.created()   
+    }
+    created(){  
+        let page = this.getPage()
+        if(page){
+            this.initInjectData(page.injectData)
+            this.initInjectMethod()
+        }
+    }
+    beforeGenerate(){
+        
+    }
+    afterGenerate(){
+
     }
     initChildren(){
         let children = []
@@ -20,11 +29,11 @@ class Component{
             return
         }
         for(let i = 0; i< arr.length; i++){
-            let child = arr[i]
-            let targetClass = this.getChildComponentByType(child.type)
+            let childOptions = arr[i]
+            let targetClass = this.getChildComponentByType(childOptions.type)
             if(targetClass){
-                let component = new targetClass(child)
-                component.parent = this
+                let component = new targetClass(childOptions, this)
+                component.init()
                 children.push(component)
             }
         }  
@@ -33,6 +42,12 @@ class Component{
     }
     getChildComponentByType(type){
         return Component
+    }
+    generateCode(){
+        this.beforeGenerate()
+        let html = this.getTemplateHtml()
+        this.afterGenerate()
+        return html
     }
     getTemplateHtml(){
         return ''
@@ -65,9 +80,24 @@ class Component{
     getDataSourceModelName(){
         return this.getModelName() + 'DataSource'
     }
-    getDataHtml(){
-        return ''
+    isPage(target){
+        return target.options.type == 'page'
     }
+    getPage(){    
+        let target = this
+        while(target.options.type !== 'page'){
+            target = target.parent
+            if(!target){
+                return null
+            }
+        }
+        return target
+    }
+    initInjectData(){
+      
+    }
+    initInjectMethod(){
 
+    }
 }
 module.exports = Component

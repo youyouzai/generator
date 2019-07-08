@@ -1,9 +1,15 @@
 var Component = require('./Component')
+var Select = require('./formItem/Select')
 class FormItem extends Component{
-    constructor(options){
-        super(options)
+    constructor(options, parent){
+        super(options, parent)
         this.key = options.key
-        this.parent = null
+    }
+    getChildComponentByType(type){
+        let map = {
+            'select': Select,
+        }
+        return map[type]
     }
     getTemplateHtml(){
         let options = this.options

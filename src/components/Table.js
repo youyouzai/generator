@@ -15,11 +15,10 @@ var manager = require('../utils/componentManager')
     pageNum: 0
  */
 class Table extends Component{
-    constructor(options){
+    constructor(options, parent){
         // 根据columns初始化children
         manager.initChildrenByField(options, 'columns')
-        super(options)
-        this.parent = null
+        super(options, parent)
         this.type = 'table'
     }
     getChildComponentByType(type){
@@ -33,9 +32,9 @@ class Table extends Component{
             ${this.getChildrenTemplateHtml()}
         </el-table>`
     }
-    getDataHtml(){
+    initInjectData(data){
         let model = this.getModelName()
-        return `${model}: [],`
+        return data[model] = []
     }
 }
 module.exports = Table

@@ -1,9 +1,9 @@
 var Component = require('./Component')
 class Pagination extends Component{
-    constructor(options){
-        super(options)
-        this.parent = null
+    constructor(options, parent){      
         this.type = 'pagination'
+        super(options, parent)
+        this.init()
     }
     initChildren(){
         

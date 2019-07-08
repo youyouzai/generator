@@ -22,6 +22,15 @@ var manager = {
             children.push(target)
         }
         options.children = children
+    },
+    getDataHtml(data){
+        let str =  JSON.stringify(data)
+        return str.replace(/\"(\w+)\":/g, function(s, target){
+            return target+':'
+        })
+    },
+    getMethodsHtml(methods){
+        return JSON.stringify(methods)
     }
 }
 module.exports = manager
