@@ -45,7 +45,7 @@ class TableColumn extends Component{
         let propHtml = prop? `prop="${prop}"` : ''
         return `<el-table-column  ${propHtml} label="${label}">
             ${this.getChildrenTemplateHtml()}
-        </el-table-column>`
+        </el-table-column>` 
     }
 }
 module.exports = TableColumn
