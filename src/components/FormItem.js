@@ -1,5 +1,8 @@
 var Component = require('./Component')
+var Input = require('./formItem/Input')
+var Buttons = require('./formItem/Buttons')
 var Select = require('./formItem/Select')
+var DatePicker = require('./formItem/DatePicker')
 class FormItem extends Component{
     constructor(options, parent){
         super(options, parent)
@@ -7,13 +10,21 @@ class FormItem extends Component{
     }
     getChildComponentByType(type){
         let map = {
+            'input': Input,
             'select': Select,
+            'buttons': Buttons,
         }
+        let dateTypes = ['year','month','date','dates', 'week','datetime','datetimerange', 'daterange','monthrange']
+        dateTypes.forEach( type => {
+            map[type] = DatePicker
+        })
         return map[type]
     }
     getTemplateHtml(){
         let options = this.options
-        return `<el-form-item label="${options.label}" prop="${options.key}">
+        let labelHtml = options.label? `label="${options.label}"` : ''
+        let propHtml = options.key? `prop="${options.key}"`: ''
+        return `<el-form-item  ${labelHtml} ${propHtml}>
             ${this.getChildrenTemplateHtml()}
         </el-form-item>`
     }

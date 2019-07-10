@@ -9,16 +9,25 @@ class Component{
         this.initChildren()     
         this.created()   
     }
-    created(){  
+    initInject(){
         let page = this.getPage()
         if(page){
             this.initInjectData(page.injectData)
+            this.initInjectComputed(page.injectComputed)
             this.initInjectMethods(page.injectMethods)
-            this.initInjectMounted(page.injectMounted)
+            this.initInjectCreated(page.injectCreated)
         }
     }
-    beforeGenerate(){
+    created(){  
         
+    }
+    beforeGenerate(){
+        this.initInject()
+        if(this.children){
+            this.children.forEach( child => {
+                child.beforeGenerate()
+            })
+        }
     }
     afterGenerate(){
 
@@ -30,15 +39,14 @@ class Component{
         if(!arr){
             return
         }
-        for(let i = 0; i< arr.length; i++){
-            let childOptions = arr[i]
+        arr.forEach( childOptions => {
             let targetClass = this.getChildComponentByType(childOptions.type)
             if(targetClass){
                 let component = new targetClass(childOptions, this)
                 component.init()
                 children.push(component)
             }
-        }  
+        })
 
         this.children = children
     }
@@ -77,7 +85,8 @@ class Component{
         return this.getModelName() + 'DataSource'
     }
     getRequestFunctionName(){
-       return `query${util.firstUpperCase(this.options.key)}`
+        let name = this.options.key? util.firstUpperCase(this.options.key): ''
+       return `query${name}`
     }
     isPage(target){
         return target.options.type == 'page'
@@ -92,14 +101,26 @@ class Component{
         }
         return target
     }
+    getForm(){    
+        let page = this.getPage()
+        return page? page.form: null
+    }
+    getTable(){
+        let page = this.getPage()
+        return page? page.table: null
+    }
     initInjectData(){
       
+    }
+    initInjectComputed(){
+
     }
     initInjectMethods(){
 
     }
-    initInjectMounted(){
+    initInjectCreated(){
 
     }
+    
 }
 module.exports = Component

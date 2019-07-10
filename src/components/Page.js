@@ -24,9 +24,15 @@ class Page extends Component{
     constructor(options, parent){ 
         super(options, parent)
         this.type = 'page'
-        this.injectData ={}
-        this.injectMethods = []
-        this.injectMounted = []
+
+        this.form = null
+        this.table = null
+        this.injectData ={
+            loading: false
+        }
+        this.injectMethods = {}
+        this.injectCreated = {}
+        this.injectComputed = {}
     }
     completed(){
         
@@ -41,7 +47,7 @@ class Page extends Component{
     }
     getTemplateHtml(){
         return `<template>
-            <div>
+            <div v-loading="loading">
                 ${this.getChildrenTemplateHtml()}
             </div>
         </template>
@@ -53,8 +59,11 @@ class Page extends Component{
                 data() {
                     return ${this.getDataHtml()}
                 },
+                computed: {
+                    ${this.getComputedHtml()}
+                },
                 mounted(){
-                    ${this.getMountedHtml()}
+                    ${this.getCreatedHtml()}
                 },
                 methods: {
                     ${this.getMethodsHtml()}
@@ -71,8 +80,11 @@ class Page extends Component{
     getDataHtml(){
         return manager.getDataHtml(this.injectData)
     }
-    getMountedHtml(){
-        return manager.getMountedHtml(this.injectMounted)
+    getComputedHtml(){
+        return manager.getComputedHtml(this.injectComputed)
+    }
+    getCreatedHtml(){
+        return manager.getCreatedHtml(this.injectCreated)
     }
     getMethodsHtml(){
         return manager.getMethodsHtml(this.injectMethods)

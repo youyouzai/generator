@@ -1,5 +1,5 @@
 
-var Component = require('../Component')
+var AsyncComponent = require('../AsyncComponent')
 var manager = require('../../utils/componentManager')
 /**
     type: 'dropdown', // 比如select/dropdown/dateRange
@@ -15,10 +15,10 @@ var manager = require('../../utils/componentManager')
     labelField: 'label', // label对应的显示字段
     valueField: 'value', // value对应的显示字段
  */
-class Select extends Component{
+class Select extends AsyncComponent{
     constructor(options, parent){
         super(options, parent)
-        this.type = 'select'
+        this.type = 'form-item-select'
         this.async = Boolean(options.url)
     }
     getTemplateHtml(){
@@ -30,27 +30,6 @@ class Select extends Component{
                     <el-option v-for="item in ${this.getDataSourceModelName()}" :key="item.${value}" :label="item.${label}" :value="item.${value}"></el-option>
                 </el-select>`   
     }
-    initInjectData(target){
-        let model = this.getDataSourceModelName()
-        target[model] = this.options.data || []
-    }
-    initInjectMethods(target){
-        if(!this.async) return;
-        target.push(this.getGetRequestHtml())
-    }
-    initInjectMounted(target){
-        if(!this.async) return;
-        let html = `this.${this.getRequestFunctionName()}()`
-        target.push(html)
-    }
-    getGetRequestHtml(){
-        let options = this.options
-        let html = `${this.getRequestFunctionName()}(){
-            this.$http.get('${options.url}').then(res => {
-                this.${this.getDataSourceModelName()} = res.${options.dataField || 'data'}
-            });
-        },`
-        return html
-    }
+    
 }
 module.exports = Select

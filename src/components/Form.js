@@ -6,6 +6,14 @@ class Form extends Component{
         manager.initChildrenByField(options, 'items')   
         super(options, parent)
     }
+    init(){
+        super.init()
+        // 初始化page的table属性，一个page只有一个table
+        let page = this.getPage()
+        if(page){
+            page.form = this
+        }
+    }
     getChildComponentByType(type){
         let map = {
             'form-item': FormItem
@@ -23,10 +31,11 @@ class Form extends Component{
         let model = this.getModelName()
 
         let formObj = {}
-        for(let i = 0; i< this.children.length; i++){
-            let child = this.children[i]
-            formObj[child.key] = child.defaultValue || ''
-        }
+        this.children.forEach( child => {
+            if(child.key){
+                formObj[child.key] = child.defaultValue || ''
+            }
+        })
         target[model] = formObj
     }
     initInjectMethod(){

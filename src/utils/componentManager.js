@@ -34,14 +34,17 @@ var manager = {
             return target+':'
         })
     },
-    getMethodsHtml(methods){
-        return methods.join('\n')
+    getComputedHtml(computedMethods){
+        return Object.values(computedMethods).join('\n')
     },
-    getMountedHtml(mounted){
-        return mounted.join('\n')
+    getMethodsHtml(methods){
+        return Object.values(methods).join('\n')
+    },
+    getCreatedHtml(createdMethods){
+        return Object.values(createdMethods).join('\n')
     },
     getAttrsHtml(attrs){
-        let result = ' '
+        let result = ''
         for(let key in attrs){
             let value = attrs[key]
             if(abbreviationMap[key] && value){

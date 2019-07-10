@@ -42,15 +42,8 @@ class TableColumn extends Component{
         }
         
         let prop = options.key
-
-        let childrenTemplateHtml = this.getChildrenTemplateHtml()
-        if(childrenTemplateHtml){
-            childrenTemplateHtml = `<template  slot-scope="scope">
-                ${childrenTemplateHtml}
-            </template>`
-        }
-
-        return `<el-table-column  prop="${prop}" label="${label}">
+        let propHtml = prop? `prop="${prop}"` : ''
+        return `<el-table-column  ${propHtml} label="${label}">
             ${this.getChildrenTemplateHtml()}
         </el-table-column>`
     }
