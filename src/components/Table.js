@@ -44,7 +44,6 @@ class Table extends AsyncComponent{
     initInjectData(target){
         let model = this.getModelName()
         target[model] = []
-        target.total = 0
     }
     initInjectMethods(target){
         if(!this.async) return;
@@ -61,7 +60,7 @@ class Table extends AsyncComponent{
                 if (res.body.code === 0) {
                     let data = res.body.data;
                     this.${this.getDataSourceModelName()} = data.${options.dataField || 'data'}
-                    this.total = data.total;
+                    this.pagination.total = data.total;
                 }
             }).catch(err => {
                 this.loading = false;

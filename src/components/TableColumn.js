@@ -4,6 +4,7 @@ var Buttons = require('./tableColumns/Buttons')
 var Icon = require('./tableColumns/Icon')
 var Img = require('./tableColumns/Img')
 var Span = require('./tableColumns/Span')
+var manager = require('../utils/componentManager')
 /**
     type: 'img', // 默认为span, 包括anchor/img/icon/labels/buttons
     label: '',
@@ -43,7 +44,8 @@ class TableColumn extends Component{
         
         let prop = options.key
         let propHtml = prop? `prop="${prop}"` : ''
-        return `<el-table-column  ${propHtml} label="${label}">
+        let labelHtml = label? `label="${label}"` : ''
+        return `<el-table-column  ${propHtml} ${labelHtml} ${manager.getAttrsHtml(this.options.attrs)}>
             ${this.getChildrenTemplateHtml()}
         </el-table-column>` 
     }

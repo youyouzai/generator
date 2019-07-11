@@ -1,6 +1,7 @@
 var util = require('../utils/util')
 class Component{
     constructor(options, parent){
+        this.key = options.key
         this.parent = parent
         this.options = options
         this.children = null
@@ -12,6 +13,8 @@ class Component{
     initInject(){
         let page = this.getPage()
         if(page){
+            this.initInjectComponents(page.injectComponents)
+            this.initInjectImports(page.injectImports)
             this.initInjectData(page.injectData)
             this.initInjectComputed(page.injectComputed)
             this.initInjectMethods(page.injectMethods)
@@ -28,6 +31,13 @@ class Component{
                 child.beforeGenerate()
             })
         }
+    }
+    
+    generateCode(){
+        this.beforeGenerate()
+        let html = this.getTemplateHtml()
+        this.afterGenerate()
+        return html
     }
     afterGenerate(){
 
@@ -52,12 +62,6 @@ class Component{
     }
     getChildComponentByType(type){
         return Component
-    }
-    generateCode(){
-        this.beforeGenerate()
-        let html = this.getTemplateHtml()
-        this.afterGenerate()
-        return html
     }
     getTemplateHtml(){
         return ''
@@ -109,6 +113,12 @@ class Component{
         let page = this.getPage()
         return page? page.table: null
     }
+    initInjectComponents(){
+
+    }
+    initInjectImports(){
+        
+    }
     initInjectData(){
       
     }
@@ -120,6 +130,12 @@ class Component{
     }
     initInjectCreated(){
 
+    }
+    getFormItemKey(){
+        let table = this.getTable()
+        let key = this.options.key
+        key = table? `${table.options.key}.${key}`: key
+        return key
     }
     
 }

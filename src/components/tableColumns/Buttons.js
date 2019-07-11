@@ -7,6 +7,7 @@ class Buttons extends Component{
     getTemplateHtml(){
         let html = '<template  slot-scope="scope">'
         let buttons = this.options.data
+        if(!buttons) return
         for(let i = 0; i<buttons.length; i++){
             let button = buttons[i]
             html += `<el-button
@@ -18,6 +19,7 @@ class Buttons extends Component{
     }
     initInjectMethods(target){
         let html = '', buttons = this.options.data
+        if(!buttons) return
         for(let i = 0; i<buttons.length; i++){
             let funcName = this.getClickFunctionName(buttons[i])
             html = `${funcName}(row, rowIndex){

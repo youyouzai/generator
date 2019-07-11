@@ -24,9 +24,16 @@ class FormItem extends Component{
         let options = this.options
         let labelHtml = options.label? `label="${options.label}"` : ''
         let propHtml = options.key? `prop="${options.key}"`: ''
-        return `<el-form-item  ${labelHtml} ${propHtml}>
+        let content =  `<el-form-item  ${labelHtml} ${propHtml}>
             ${this.getChildrenTemplateHtml()}
         </el-form-item>`
+        if(options.span){
+            content = `<el-col :span="${optons.span}">
+                ${content}
+           </el-clo>`
+        }
+        
+        return content
     }
     getDataHtml(){
         let defaultValue = this.options.defaultValue

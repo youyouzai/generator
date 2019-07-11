@@ -3,30 +3,17 @@ var Table = require('./Table')
 var Form = require('./Form')
 var Pagination = require('../components/Pagination')
 var manager = require('../utils/componentManager')
-/**
-    key: 'manager',
-    children: [
-        {
-            type: 'table',
-            ...tableData
-        },
-        {
-            type: 'form',
-            ...formData
-        },
-        {
-            type: 'tab',
-            ...tabData
-        }
-    ]  
- */
+var converter = require('../utils/optionsConverter')
+
 class Page extends Component{
     constructor(options, parent){ 
+        options = converter.initPageOptions(options)
         super(options, parent)
         this.type = 'page'
 
         this.form = null
         this.table = null
+        this.injectComponents = options.components || []
         this.injectData ={
             loading: false
         }
@@ -41,7 +28,7 @@ class Page extends Component{
         let map = {
             'form': Form,
             'table': Table,
-            'pagination': Pagination
+            'pagination': Pagination,
         }
         return map[type]
     }
@@ -49,10 +36,15 @@ class Page extends Component{
         return `<template>
             <div v-loading="loading">
                 ${this.getChildrenTemplateHtml()}
+                ${this.getComponentsHtml()}
             </div>
         </template>
         <script>
+             ${this.getImportsHtml()}
             export default {
+                components: {
+                    ${this.getComponentNamesHtml()}
+                },
                 props: {
                     ${this.getPropsHtml()}
                 },
@@ -74,6 +66,15 @@ class Page extends Component{
 
         </style>`
     }
+    getComponentsHtml(){
+        return manager.getComponentsHtml(this.injectComponents)
+    }
+    getComponentNamesHtml(){
+        return manager.getComponentNamesHtml(this.injectComponents)
+    }
+    getImportsHtml(){
+        return manager.getImportsHtml(this.injectComponents)
+    }
     getPropsHtml(){
         return ''
     }
@@ -89,5 +90,6 @@ class Page extends Component{
     getMethodsHtml(){
         return manager.getMethodsHtml(this.injectMethods)
     }
+    
 }
 module.exports = Page

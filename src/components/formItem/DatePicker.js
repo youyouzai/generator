@@ -8,7 +8,7 @@ class DatePicker extends Component{
     }
     getTemplateHtml(){
         let options = this.options
-        return `<el-date-picker v-model="${options.key}" type="${options.type}" ${manager.getAttrsHtml(options.attrs)} >
+        return `<el-date-picker v-model="${this.getFormItemKey()}" type="${options.type}" ${manager.getAttrsHtml(options.attrs)} >
              </el-date-picker>`
     }
     

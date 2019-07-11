@@ -26,7 +26,8 @@ class Select extends AsyncComponent{
 
         let label = options.labelField || 'label'
         let value = options.valueField || 'value'
-        return `<el-select v-model="${options.key}" ${manager.getAttrsHtml(options.attrs)}>
+        
+        return `<el-select v-model="${this.getFormItemKey()}" ${manager.getAttrsHtml(options.attrs)}>
                     <el-option v-for="item in ${this.getDataSourceModelName()}" :key="item.${value}" :label="item.${label}" :value="item.${value}"></el-option>
                 </el-select>`   
     }
