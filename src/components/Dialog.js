@@ -21,7 +21,7 @@ class Dialog extends Page{
         }
     }
     initInjectComponents(target){
-        let key = this.options.key || 'dialog'
+        let key = this.options.key || this.global.defaultDialogKey
         target[key] = key
     }
     getTemplateHtml(){

@@ -29,7 +29,7 @@ class Buttons extends Component{
         } 
     }
     getClickFunctionName(button){
-        return button.click || 'onBtnClick'
+        return button.click || this.global.defaultClickName
     }
 }
 module.exports = Buttons

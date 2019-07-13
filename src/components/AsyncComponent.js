@@ -22,7 +22,7 @@ class AsyncComponent extends Component{
         let options = this.options
         let html = `${funcName}(){
             this.$http.get('${options.url}').then(res => {
-                this.${this.getDataSourceModelName()} = res.${options.dataField || 'data'}
+                this.${this.getDataSourceModelName()} = res.${options.dataField || this.global.responseDataField}
             });
         },`
         return html

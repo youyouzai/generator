@@ -36,15 +36,16 @@ var manager = {
         let str =  JSON.stringify(data)
         return str.replace(/\"(\w+)\":/g, function(s, target){
             return target+':'
-        })
+        }).replace(/\"/g, '\'')
     },
     getComponentsHtml(components){
-        return components.map( name => {
+        let arr =  components.map( name => {
             name = name.replace(/[A-Z]/g, function(s1){
                 return '-' + s2.toLowerCase()
             })
             return `<${name} ></${name}>`
-        }).join('\n')
+        })
+        return this.combinHtmls(arr)
     },
     getComponentNamesHtml(components){
         return components.map( name => {
@@ -54,21 +55,25 @@ var manager = {
         }).join(',')
     },
     getImportsHtml(components){
-        return components.map( name => {
+        let arr = components.map( name => {
             name = name.replace(/-([a-zA-Z])/, function(s1,s2){
                 return s2.toUpperCase()
             })
             return `import ${name} from './components/${name}'`
-        }).join('\n')
+        })
+        return this.combinHtmls(arr)
     },
     getComputedHtml(computedMethods){
-        return Object.values(computedMethods).join('\n')
+        let arr =  Object.values(computedMethods)
+        return this.combinHtmls(arr)
     },
     getMethodsHtml(methods){
-        return Object.values(methods).join('\n')
+        let arr =  Object.values(methods)
+        return this.combinHtmls(arr)
     },
     getCreatedHtml(createdMethods){
-        return Object.values(createdMethods).join('\n')
+        let arr =  Object.values(createdMethods)
+        return this.combinHtmls(arr)
     },
     getAttrsHtml(attrs){
         let result = ''
@@ -82,5 +87,8 @@ var manager = {
         }
         return result
     },
+    combinHtmls(arr){
+        return arr.join('\n').replace(/\"/g, '\'')
+    }
 }
 module.exports = manager

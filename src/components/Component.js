@@ -1,12 +1,19 @@
 var util = require('../utils/util')
+
+var {defaultConfig, getRoot} = require('../global')
+var config = require(getRoot + '/generator.config.js')
+
+
+var globalConfig = null
 class Component{
     constructor(options, parent){
         this.key = options.key
         this.parent = parent
         this.options = options
-        this.children = null
+        this.children = null    
     }
     init(){
+        this.initGlobal()
         this.initChildren()     
         this.created()   
     }
@@ -20,6 +27,12 @@ class Component{
             this.initInjectMethods(page.injectMethods)
             this.initInjectCreated(page.injectCreated)
         }
+    }
+    initGlobal(){
+        if(!globalConfig){
+            globalConfig = Object.assign({}, defaultConfig, config && config.options)
+        }
+        this.global = globalConfig
     }
     created(){  
         
@@ -86,7 +99,7 @@ class Component{
         return this.options.key
     }
     getDataSourceModelName(){
-        return this.getModelName() + 'DataSource'
+        return this.getModelName() + (this.global.dataSuffix || 'DataSource')
     }
     getRequestFunctionName(){
         let name = this.options.key? util.firstUpperCase(this.options.key): ''
@@ -97,7 +110,7 @@ class Component{
     }
     getPage(){    
         let target = this
-        while(target.options.type !== 'page'){
+        while(!this.isPage(target)){
             target = target.parent
             if(!target){
                 return null

@@ -1,117 +1,49 @@
 
 var Page = require('../src/components/Page')
+var Dialog = require('../src/components/Dialog')
 var FileUtil = require('../src/utils/file')
 
 let fileUtil = new FileUtil(__dirname + '/dist/')
 let data = {
-    key: 'manager',
-    type: 'page',
-    children: [
-        {
-            type: 'form',
-            key: 'form',
-            attrs: {}, // 对应的element-ui的属性
-            children: [{
-                type: 'form-item', // 比如select/dropdown/dateRange
-                label: '国家：', // 标签名称
-                key: 'country', // el-form-item对应的prop属性
-                children: [{
-                    key: 'country',
-                    type: 'select', // 比如select/dropdown/dateRange
-                        // 数据集合对应的属性
-                    data: [{label: '英国',value: 'English'}, {label: '美国',value: 'American'}], // 静态数据
-                    url: '/country/list',
-                    attrs: {  // 对应的element-ui的属性
-                        disabled: true,
-                        style: 'background-color: red'
-                    },
-                }]
-            },{
-                type: 'form-item', // 比如select/dropdown/dateRange
-                label: '名称：', // 标签名称
-                key: 'name', // el-form-item对应的prop属性
-                children: [
-                {
-                    key: 'name',
-                    type: 'input', // 比如select/dropdown/dateRange
-                        // 数据集合对应的属性
-                    attrs: {  // 对应的element-ui的属性
-                        disabled: true,
-                        style: 'background-color: red'
-                    },
-                }]
-            },{
-                type: 'form-item', // 比如select/dropdown/dateRange
-                label: '选择日期：', // 标签名称
-                key: 'time', // el-form-item对应的prop属性
-                children: [
-                {
-                    key: 'time',
-                    type: 'daterange', // 比如select/dropdown/dateRange
-                        // 数据集合对应的属性
-                    attrs: {  // 对应的element-ui的属性
-                        placeholder: '请选择日期'
-                    },
-                }]
-            },{
-                type: 'form-item', // 比如select/dropdown/dateRange
-                children: [
-                {
-                    type: 'buttons', // 比如select/dropdown/dateRange
-                    data: [{type: 'submit', label: '筛选'}, {type: 'reset', label: '重置'}]
-                }]
-            },]
-        },
-        {
-            type: 'table',
-            key: 'userTable',
-            // 数据集合对应的属性
-            url: '/users/list', // 远程请求url, 已data优先
-            dataField: 'data', // 返回请求中data数组对应的字段
-            data: [],
-            children: [{
-                type: 'table-column',
-                label: '名称',
-                key: 'name',
-                attrs: { // 对应的element-ui的属性
-                    width: 180,
-                    fix: true
-                },
-                children: [{  type: 'span'}]
-            },
-            {
-                type: 'table-column',
-                label: '商品',
-                key: 'link', 
-                children: [{ type: 'anchor', url: 'http://www.baidu.com'}]
-            },
-            {
-                type: 'table-column',
-                label: '图片',
-                key: 'imgUrl', 
-                children: [{ type: 'img', url: '/imgs/4'}]
-            },
-            {
-                type: 'table-column',
-                label: '操作',
-                children: [{
-                    type: 'buttons', 
-                    data: [{label: '查看', click: 'onViewClick'}, {label: '编辑', click: 'onEditClick'}]
-                }]
-            }],
-            editable: false,  // 是否可编辑
-            // 分页相关属性
-            total: 0,
-            pageSize: 10,
-            pageNum: 0
-        },
-    ]
+    components: ['my-dialog'], 
+    form: {
+        key: 'form',
+        items: [
+            {label: '国家sss：', prop: 'country', type: 'select',url: '/country/list', placeholder: '请选择国家'},
+            {label: '语言11：', prop: 'lang222', type: 'select', default: 'American', data: [{label: '英国',value: 'English'}, {label: '美国',value: 'American'}]},
+            {label: '名称：', prop: 'name', type: 'input'},
+            {label: '日期：', prop: 'date', type: 'daterange'},
+        ]
+    },
+    table: {
+        url: '/users/list', // 远程请求url, 已data优先
+        columns: [
+            { type: 'selection',  width: 70},
+            { label: '商品', prop: 'name',  width: 180},
+            { label: '图片', prop: 'imgUrl',  type: 'img'},
+            { label: '链接', prop: 'product',  type: 'anchor', url: 'http://www.google.com', width: 180},
+            { label: '操作', type: 'buttons', data: [{label: '查看', click: 'onViewClick'}, {label: '编辑', click: 'onEditClick'}]},
+        ]
+    }
 }
-
+let dialogData = {
+    key: 'my-dialog',
+    form: {
+        items: [
+            {label: '日志类型：', span: 8, prop: 'type', type: 'span'},
+            {label: '操作人：', span: 8, prop: 'operator', type: 'span'},
+            {label: '更新时间：', span: 8, prop: 'updateTime', type: 'span'},
+        ]
+    }
+}
 function generateCode(){
     let page = new Page(data)
     page.init()
-    fileUtil.write(data.key + '.vue', page.generateCode())
+    fileUtil.write(page.key + '.vue', page.generateCode())
+
+    let dialog = new Dialog(dialogData)
+    dialog.init()
+    fileUtil.write(dialog.key + '.vue', dialog.generateCode())
 }
 
 generateCode()

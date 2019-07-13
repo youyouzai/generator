@@ -8,7 +8,7 @@ class Input extends Component{
     }
     getTemplateHtml(){
         let options = this.options
-        return `<el-input v-model="${this.getFormItemKey()}" ${manager.getAttrsHtml(options.attrs)}>></el-input>`   
+        return `<el-input v-model="${this.getFormItemKey()}" ${manager.getAttrsHtml(options.attrs)}></el-input>`   
     }
     
 }

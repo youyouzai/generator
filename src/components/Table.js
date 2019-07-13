@@ -1,19 +1,7 @@
 var AsyncComponent = require('./AsyncComponent')
 var TableColumn = require('./TableColumn')
 var manager = require('../utils/componentManager')
-/**
-    key: 'table', // 列表名称
-    // 数据集合对应的属性
-    url: '', // 远程请求url, 已data优先
-    dataField: 'data', // 返回请求中data数组对应的字段
-    data: [],
-    columns: [tableColumnData, tableColumnData],
-    editable: false,  // 是否可编辑
-    // 分页相关属性
-    total: 0,
-    pageSize: 10,
-    pageNum: 0
- */
+
 class Table extends AsyncComponent{
     constructor(options, parent){
         // 根据columns初始化children
@@ -59,7 +47,7 @@ class Table extends AsyncComponent{
                 this.loading = false;
                 if (res.body.code === 0) {
                     let data = res.body.data;
-                    this.${this.getDataSourceModelName()} = data.${options.dataField || 'data'}
+                    this.${this.getDataSourceModelName()} = data.${options.dataField || this.global.responseDataField}
                     this.pagination.total = data.total;
                 }
             }).catch(err => {

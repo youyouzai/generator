@@ -24,8 +24,8 @@ class Select extends AsyncComponent{
     getTemplateHtml(){
         let options = this.options
 
-        let label = options.labelField || 'label'
-        let value = options.valueField || 'value'
+        let label = options.labelField || this.global.labelField
+        let value = options.valueField || this.global.valueField
         
         return `<el-select v-model="${this.getFormItemKey()}" ${manager.getAttrsHtml(options.attrs)}>
                     <el-option v-for="item in ${this.getDataSourceModelName()}" :key="item.${value}" :label="item.${label}" :value="item.${value}"></el-option>

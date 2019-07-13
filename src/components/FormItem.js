@@ -1,4 +1,5 @@
 var Component = require('./Component')
+var Span = require('./formItem/Span')
 var Input = require('./formItem/Input')
 var Buttons = require('./formItem/Buttons')
 var Select = require('./formItem/Select')
@@ -10,6 +11,7 @@ class FormItem extends Component{
     }
     getChildComponentByType(type){
         let map = {
+            'span': Span, 
             'input': Input,
             'select': Select,
             'buttons': Buttons,
