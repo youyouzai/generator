@@ -27,10 +27,12 @@ let dialogData = {
             {label: '日志类型：', span: 8, prop: 'type', type: 'span'},
             {label: '操作人：', span: 8, prop: 'operator', type: 'span'},
             {label: '更新时间：', span: 8, prop: 'updateTime', type: 'span'},
+            {label: '国家1：', prop: 'country', type: 'select',url: '/country/list', placeholder: '请选择国家'},
+            {label: '国家2：', prop: 'country', type: 'select',url: '/country/list', placeholder: '请选择国家'},
         ]
     }
 }
 module.exports = [
     {type: 'page', data: data},
-    {type: 'dialog', data: dialogData}
+    // {type: 'dialog', data: dialogData}
 ]

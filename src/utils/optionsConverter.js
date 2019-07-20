@@ -15,12 +15,17 @@ class OptionsConverter {
         let tableOptions = this.initTableOptions(data.table)
         if(tableOptions){
             options.children.push(tableOptions)
-            // 添加分页
-            options.children.push({
-                type: 'pagination'
-            })
+            // 默认表格添加分页
+            if(options.showPagination === undefined || options.showPagination){
+                options.children.push(this.initPaginationOptions())
+            }
         }
         return options
+    }
+    initPaginationOptions(){
+        return {
+            type: 'pagination'
+        }
     }
     initTableOptions(data){
         if(!data) return null

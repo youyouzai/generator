@@ -34,9 +34,10 @@ var manager = {
     },
     getDataHtml(data){
         let str =  JSON.stringify(data)
-        return str.replace(/\"(\w+)\":/g, function(s, target){
+        const result = str.replace(/\"(\w+)*\":/g, function(s, target){
             return target+':'
         }).replace(/\"/g, '\'')
+        return result;
     },
     getComponentsHtml(components){
         let arr =  components.map( name => {
@@ -79,11 +80,13 @@ var manager = {
         let result = ''
         for(let key in attrs){
             let value = attrs[key]
-            if(abbreviationMap[key] && value){
-                result += `${key} `
-            }else{
-                result += `${key}="${attrs[key]}" `
-            }   
+            if(value !== undefined){
+                if(abbreviationMap[key] && value){
+                    result += `${key} `
+                }else{
+                    result += `${key}="${attrs[key]}" `
+                }   
+            }  
         }
         return result
     },

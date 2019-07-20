@@ -5,30 +5,38 @@ class Pagination extends Component{
         this.type = 'pagination'
     }
     initInjectData(target){
-        target.pagination = {
-            pageNo: 1,
-            pageSize: 10,
-            total: 0
+        target.totalCount = 0
+        const formKey = this.getFormKey()
+        if(!target[formKey]){
+            target[formKey] = {}
         }
-    }
-    inject(){
-        
+        target[formKey].pageNo = 1
+        target[formKey].pageSize = 10
     }
     initInjectMethods(target){
+        const formKey = this.getFormKey()
         let table = this.getTable()
         let content = table ? `this.${table.getRequestFunctionName()}()`: '// todo: do something for changePage'
-        let html = `changePage(){
+        target['changePage'] = `changePage(value){
+            this.${formKey}.pageNo = value
             ${content}
         },`
-        target['changePage'] = html
+        target['changeSize'] = `changePage(value){
+            this.${formKey}.pageSize = value
+            ${content}
+        },`
     }
     getTemplateHtml(){
-       
+        const formKey = this.getFormKey()
         return ` <div class="text-right el-sub-container">
-            <el-pagination :current-page="pagination.pageNo" :page-size="pagination.pageSize" :total="pagination.total" 
+            <el-pagination :current-page="${formKey}.pageNo" :page-size="${formKey}.pageSize" :total="totalCount" 
             :page-sizes="[10, 20, 50]" layout="total, sizes, prev, pager, next, jumper" 
-            @size-change="changePage" @current-change="changePage"></el-pagination>
+            @size-change="changeSize" @current-change="changePage"></el-pagination>
         </div>`
+    }
+    getFormKey(){
+        const form = this.getForm()
+        return form ? form.getModelName() : 'form';
     }
 }
 module.exports = Pagination

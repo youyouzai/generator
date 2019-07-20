@@ -48,7 +48,7 @@ class Table extends AsyncComponent{
                 if (res.body.code === 0) {
                     let data = res.body.data;
                     this.${this.getDataSourceModelName()} = data.${options.dataField || this.global.responseDataField}
-                    this.pagination.total = data.total;
+                    this.totalCount = data.total;
                 }
             }).catch(err => {
                 this.loading = false;

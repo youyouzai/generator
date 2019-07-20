@@ -30,7 +30,8 @@ function generateCode(){
         page.init()
 
         const fileName = `${options.key || options.type || ('newPage' + pageCount++)}.vue`
-        fileUtil.write(fileName, page.generateCode())
+        const code = page.generateCode()
+        fileUtil.write(fileName, code)
     })
 }
 generateCode()
