@@ -23,6 +23,9 @@ function generatePage(node, targetFile) {
 }
 
 /**判断是否是页面 */
+function isPages(node){
+    return [41].indexOf(node.componentType) > -1
+}
 function isPage(node){
     return [0, 32, 41, 42, 43].indexOf(node.componentType) > -1
 }
@@ -77,10 +80,11 @@ function generateFiles(node, fatherPath, isClean = false) {
              // 1-2生成当前文件
              filePath = dirPath + '.vue'
         }
-        createFile(fileName, filePath, node)  
-        node.filePath = filePath
-        routerFiles.push({fileName, filePath, node})
-
+        if(!isPages(node)) {
+            createFile(fileName, filePath, node)  
+            node.filePath = filePath
+            routerFiles.push({fileName, filePath, node})
+        }
         targetPageStack.pop()
     }else {
         node.page = getComponentPage()
@@ -106,12 +110,9 @@ function fillFileCode() {
 }
 
 function initRouter(rootFilePath) {
-    const router = new Router(routerFiles)
-    const code = router.getTemplateCode(rootFilePath)
+    const router = new Router(routerFiles, rootFilePath)
+    const code = router.getTemplateCode()
     fileUtil.writeByRelative('/src/router/index.js', code)
-}
-function initCss() {
-    fileUtil.copyDir(`${getRoot}/src/rely/css`, `${fileUtil.targetDir}/css`)
 }
 function beforeGenerate() {
     // 清空dist文件夹
@@ -133,8 +134,6 @@ function generateCode(node) {
     fillFileCode(node)
     // // ④初始化router文件
     initRouter('views')
-    // 初始化css文件
-    initCss()
 }
 var fs = require('fs')
 const value = fs.readFileSync( './data.json', {flag: 'r+', encoding: 'utf8'})

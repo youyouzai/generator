@@ -56,27 +56,17 @@ class FileUtil {
     if (err) {
       callback(err)
     } else {
-      fs.readdir(src, function (err, paths) {
-        if (err) {
-          callback(err)
-        } else {
-          paths.forEach(function (path) {
-            var _src = src + '/' + path
-            var _dist = dist + '/' + path
-            fs.stat(_src, function (err, stat) {
-              if (err) {
-                callback(err)
-              } else {
-                // 判断是文件还是目录
-                if (stat.isFile()) {
-                  fs.writeFileSync(_dist, fs.readFileSync(_src))
-                } else if (stat.isDirectory()) {
-                  // 当是目录是，递归复制
-                  _self.copyDir(_src, _dist, callback)
-                }
-              }
-            })
-          })
+      const paths = fs.readdirSync(src)
+      paths.forEach(function (path) {
+        var _src = src + '/' + path
+        var _dist = dist + '/' + path
+        const stat = fs.statSync(_src)
+        // 判断是文件还是目录
+        if (stat.isFile()) {
+          fs.writeFileSync(_dist, fs.readFileSync(_src))
+        } else if (stat.isDirectory()) {
+          // 当是目录是，递归复制
+          _self.copyDir(_src, _dist, callback)
         }
       })
     }

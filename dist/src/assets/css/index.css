@@ -1,0 +1,45 @@
+.form-container {
+  margin: 10px 15px 20px 15px;
+  padding-top: 15px;
+  padding-left: 15px;
+  border: 1px solid #ebeef5;
+  border-radius: 4px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+.table-container {
+  margin: 10px 15px 0 15px;
+  padding: 15px 0;
+  border: 1px solid #ebeef5;
+  border-radius: 4px;
+}
+.pagination-container {
+  padding: 10px 15px;
+  text-align: right;
+}
+/**导航菜单**/
+.page-container {
+  display: flex;
+  height: 100%;
+  min-height: 600px;
+}
+.page-container .l-left {
+  flex-basis: 200px;
+  position: relative;
+  border-right: solid 1px #ecf5ff;
+}
+.page-container .l-main {
+  position: relative;
+  display: flex;
+  flex: 1;
+  padding-top: 0;
+  overflow: auto;
+}
+.page-container .content-container {
+  margin: 0;
+  padding: 10px 15px;
+  box-sizing: border-box;
+}
+.page-container .content-container:hover,
+.page-container .content-container.active {
+  border-color: #409eff;
+}

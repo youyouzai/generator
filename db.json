@@ -1,0 +1,67 @@
+{
+    "users": 
+        {
+            "code": 0,
+            "data": {
+                "totalCount": 47,
+                "data": [
+                    {   
+                        "id" : 1,
+                        "date": "2016-05-02",
+                        "name": "'王小虎'",
+                        "address": "'上海市普陀区金沙江路 1518 弄'",
+                        "imgUrl": "https://p.ssl.qhimg.com/dmfd/400_300_/t0120b2f23b554b8402.jpg"
+                    },
+                    {
+                        "id" : 2,
+                        "date": "2016-05-02",
+                        "name": "'王小虎'",
+                        "address": "'上海市普陀区金沙江路 1518 弄'",
+                        "imgUrl": "https://p.ssl.qhimg.com/dmfd/400_300_/t0120b2f23b554b8402.jpg"
+                    },
+                    {   
+                        "id" : 3,
+                        "date": "2016-05-02",
+                        "name": "'王小虎'",
+                        "address": "'上海市普陀区金沙江路 1518 弄'",
+                        "imgUrl": "https://p.ssl.qhimg.com/dmfd/400_300_/t0120b2f23b554b8402.jpg"
+                    },
+                    {
+                        "id" : 4,
+                        "date": "2016-05-02",
+                        "name": "'王小虎'",
+                        "address": "'上海市普陀区金沙江路 1518 弄'",
+                        "imgUrl": "https://p.ssl.qhimg.com/dmfd/400_300_/t0120b2f23b554b8402.jpg"
+                    }
+                ]
+            }
+                
+        },
+    "countrys": {
+        "code": 0,
+        "data": [
+            {"countryCode": "CN", "countryName": "中国0"},
+            {"countryCode": "CN1", "countryName": "中国1"},
+            {"countryCode": "CN2", "countryName": "中国2"},
+            {"countryCode": "CN3", "countryName": "中国3"},
+            {"countryCode": "CN113", "countryName": "中国4"}
+        ]
+    },
+    "country1": {
+        "code": 0,
+        "data": [
+            {"countryCode": "CN", "countryName": "中国9"}
+        ]
+    },
+    "report": {"status":1,"msg":"success","data":[{"tokenDelCount":0,"tokenHistoryCount":1,"submitCount":0,"paidCount":0,"selectCardSubmitCount":0,"selectCardPaidCount":0,"tokenSubmitCount":0,"tokenPaidCount":0,"tokenAddCount":0,"tokenExpireCount":0,"updateTime":"2019\/08\/12 15:38:22","channelCode":"checkout_credit","siteCode":"DL"},{"tokenDelCount":0,"tokenHistoryCount":1,"submitCount":0,"paidCount":0,"selectCardSubmitCount":0,"selectCardPaidCount":0,"tokenSubmitCount":0,"tokenPaidCount":0,"tokenAddCount":0,"tokenExpireCount":0,"siteCode":"DL","channelCode":"\u6c47\u603b"},{"tokenDelCount":0,"tokenHistoryCount":57,"submitCount":0,"paidCount":0,"selectCardSubmitCount":0,"selectCardPaidCount":0,"tokenSubmitCount":0,"tokenPaidCount":0,"tokenAddCount":0,"tokenExpireCount":0,"updateTime":"2019\/08\/12 15:38:22","channelCode":"worldpay","siteCode":"GB"},{"tokenDelCount":0,"tokenHistoryCount":91,"submitCount":0,"paidCount":0,"selectCardSubmitCount":0,"selectCardPaidCount":0,"tokenSubmitCount":0,"tokenPaidCount":0,"tokenAddCount":0,"tokenExpireCount":0,"updateTime":"2019\/08\/12 15:38:22","channelCode":"checkout_credit","siteCode":"GB"},{"tokenDelCount":0,"tokenHistoryCount":28,"submitCount":0,"paidCount":0,"selectCardSubmitCount":0,"selectCardPaidCount":0,"tokenSubmitCount":0,"tokenPaidCount":0,"tokenAddCount":0,"tokenExpireCount":0,"updateTime":"2019\/08\/12 15:38:22","channelCode":"GC","siteCode":"GB"},{"tokenDelCount":0,"tokenHistoryCount":9,"submitCount":0,"paidCount":0,"selectCardSubmitCount":0,"selectCardPaidCount":0,"tokenSubmitCount":0,"tokenPaidCount":0,"tokenAddCount":0,"tokenExpireCount":0,"updateTime":"2019\/08\/12 15:38:22","channelCode":"ADN_CC","siteCode":"GB"},{"tokenDelCount":0,"tokenHistoryCount":185,"submitCount":0,"paidCount":0,"selectCardSubmitCount":0,"selectCardPaidCount":0,"tokenSubmitCount":0,"tokenPaidCount":0,"tokenAddCount":0,"tokenExpireCount":0,"siteCode":"GB","channelCode":"\u6c47\u603b"},{"tokenDelCount":0,"tokenHistoryCount":5,"submitCount":0,"paidCount":0,"selectCardSubmitCount":0,"selectCardPaidCount":0,"tokenSubmitCount":0,"tokenPaidCount":0,"tokenAddCount":0,"tokenExpireCount":0,"updateTime":"2019\/08\/12 15:38:22","channelCode":"worldpay","siteCode":"RG"},{"tokenDelCount":0,"tokenHistoryCount":5,"submitCount":0,"paidCount":0,"selectCardSubmitCount":0,"selectCardPaidCount":0,"tokenSubmitCount":0,"tokenPaidCount":0,"tokenAddCount":0,"tokenExpireCount":0,"siteCode":"RG","channelCode":"\u6c47\u603b"},{"tokenDelCount":0,"tokenHistoryCount":1,"submitCount":0,"paidCount":0,"selectCardSubmitCount":0,"selectCardPaidCount":0,"tokenSubmitCount":0,"tokenPaidCount":0,"tokenAddCount":0,"tokenExpireCount":0,"updateTime":"2019\/08\/12 15:38:22","channelCode":"checkout_credit","siteCode":"RW"},{"tokenDelCount":0,"tokenHistoryCount":1,"submitCount":0,"paidCount":0,"selectCardSubmitCount":0,"selectCardPaidCount":0,"tokenSubmitCount":0,"tokenPaidCount":0,"tokenAddCount":0,"tokenExpireCount":0,"siteCode":"RW","channelCode":"\u6c47\u603b"},{"tokenDelCount":0,"tokenHistoryCount":35,"submitCount":0,"paidCount":0,"selectCardSubmitCount":0,"selectCardPaidCount":0,"tokenSubmitCount":0,"tokenPaidCount":0,"tokenAddCount":0,"tokenExpireCount":0,"updateTime":"2019\/08\/12 15:38:22","channelCode":"worldpay","siteCode":"ZF"},{"tokenDelCount":0,"tokenHistoryCount":15,"submitCount":0,"paidCount":0,"selectCardSubmitCount":0,"selectCardPaidCount":0,"tokenSubmitCount":0,"tokenPaidCount":0,"tokenAddCount":0,"tokenExpireCount":0,"updateTime":"2019\/08\/12 15:38:22","channelCode":"checkout_credit","siteCode":"ZF"},{"tokenDelCount":0,"tokenHistoryCount":50,"submitCount":0,"paidCount":0,"selectCardSubmitCount":0,"selectCardPaidCount":0,"tokenSubmitCount":0,"tokenPaidCount":0,"tokenAddCount":0,"tokenExpireCount":0,"siteCode":"ZF","channelCode":"\u6c47\u603b"},{"tokenDelCount":0,"tokenHistoryCount":108,"submitCount":0,"paidCount":0,"selectCardSubmitCount":0,"selectCardPaidCount":0,"tokenSubmitCount":0,"tokenPaidCount":0,"tokenAddCount":0,"tokenExpireCount":0,"siteCode":"ALL","channelCode":"checkout_credit"},{"tokenDelCount":0,"tokenHistoryCount":97,"submitCount":0,"paidCount":0,"selectCardSubmitCount":0,"selectCardPaidCount":0,"tokenSubmitCount":0,"tokenPaidCount":0,"tokenAddCount":0,"tokenExpireCount":0,"siteCode":"ALL","channelCode":"worldpay"},{"tokenDelCount":0,"tokenHistoryCount":28,"submitCount":0,"paidCount":0,"selectCardSubmitCount":0,"selectCardPaidCount":0,"tokenSubmitCount":0,"tokenPaidCount":0,"tokenAddCount":0,"tokenExpireCount":0,"siteCode":"ALL","channelCode":"GC"},{"tokenDelCount":0,"tokenHistoryCount":9,"submitCount":0,"paidCount":0,"selectCardSubmitCount":0,"selectCardPaidCount":0,"tokenSubmitCount":0,"tokenPaidCount":0,"tokenAddCount":0,"tokenExpireCount":0,"siteCode":"ALL","channelCode":"ADN_CC"},{"channelCode":"\u6c47\u603b","siteCode":"ALL","tokenDelCount":0,"tokenHistoryCount":242,"submitCount":0,"paidCount":0,"selectCardSubmitCount":0,"selectCardPaidCount":0,"tokenSubmitCount":0,"tokenPaidCount":0,"tokenAddCount":0,"tokenExpireCount":0}],"power":{"viewAmount":1,"viewNumber":1}},
+    "chart": {"status":1,"msg":"success","data":{"20190805":{"min":"2019-08-05","max":"2019-08-05","submitCount":98,"successCount":13,"rate":13.27},"20190806":{"min":"2019-08-06","max":"2019-08-06","submitCount":60,"successCount":10,"rate":16.67},"20190808":{"min":"2019-08-08","max":"2019-08-08","submitCount":13,"successCount":3,"rate":23.08},"20190809":{"min":"2019-08-09","max":"2019-08-09","submitCount":68,"successCount":14,"rate":20.59},"20190812":{"min":"2019-08-12","max":"2019-08-12","submitCount":39,"successCount":11,"rate":28.21}}},
+    "list": {
+        "data": {
+            "totalCount": 10,
+            "list": [
+                { "name": "青龙", "profession": "孟章神君", "flag": "青龙为木" },
+                { "name": "白虎", "profession": "监兵神君", "flag": "白虎为金" }
+            ]
+        }
+    }
+}
