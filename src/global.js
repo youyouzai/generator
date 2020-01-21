@@ -1,10 +1,13 @@
-const getRoot = process.cwd();
-const defaultConfig = {
+var defaultConfig = {
     labelField: 'label',
     valueField: 'value',
     dataSuffix: 'DataSource',
-    responseDataField: 'data',
+    responseDataField: 'list',
     defaultClickName: 'onBtnClick',
     defaultDialogKey: 'dialog',
 }
-module.exports = { getRoot, defaultConfig}
+module.exports = { 
+    // eslint-disable-next-line no-undef
+    getRoot: process.cwd(), 
+    defaultConfig
+}

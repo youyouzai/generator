@@ -3,14 +3,14 @@ var util = require('../utils/util')
 var {defaultConfig, getRoot} = require('../global')
 var config = require(getRoot + '/generator.config.js')
 
-
 var globalConfig = null
 class Component{
     constructor(options, parent){
-        this.key = options.key
+        this.key = options.key || options.prop
         this.parent = parent
         this.options = options
-        this.children = null    
+        this.children = null  
+        this.defaultValue = options.defaultValue 
     }
     init(){
         this.initGlobal()
@@ -20,7 +20,9 @@ class Component{
     initInject(){
         let page = this.getPage()
         if(page){
+            this.injectRely(page.rely)
             this.initInjectComponents(page.injectComponents)
+            this.initInjectComponentNames(page.injectComponentNames)
             this.initInjectImports(page.injectImports)
             this.initInjectData(page.injectData)
             this.initInjectComputed(page.injectComputed)
@@ -63,7 +65,7 @@ class Component{
             return
         }
         arr.forEach( childOptions => {
-            let targetClass = this.getChildComponentByType(childOptions.type)
+            let targetClass = this.getChildComponentByType(childOptions.componentType)
             if(targetClass){
                 let component = new targetClass(childOptions, this)
                 component.init()
@@ -73,6 +75,7 @@ class Component{
 
         this.children = children
     }
+    // eslint-disable-next-line
     getChildComponentByType(type){
         return Component
     }
@@ -96,17 +99,17 @@ class Component{
         return html
     }
     getModelName(){
-        return this.options.key
+        return this.key
     }
     getDataSourceModelName(){
         return this.getModelName() + (this.global.dataSuffix || 'DataSource')
     }
     getRequestFunctionName(){
-        let name = this.options.key? util.firstUpperCase(this.options.key): ''
+        let name = this.key? util.firstUpperCase(this.key): ''
        return `query${name}`
     }
     isPage(target){
-        return target.options.type == 'page'
+        return target.constructor.name === 'Page'
     }
     getPage(){    
         let target = this
@@ -118,15 +121,18 @@ class Component{
         }
         return target
     }
-    getForm(){    
-        let page = this.getPage()
-        return page? page.form: null
-    }
+    
     getTable(){
         let page = this.getPage()
         return page? page.table: null
     }
+    injectRely(){
+
+    }
     initInjectComponents(){
+
+    }
+    initInjectComponentNames(){
 
     }
     initInjectImports(){
@@ -144,12 +150,26 @@ class Component{
     initInjectCreated(){
 
     }
+    getForm(){
+        return this.findParentByType('form')
+    }
+    getFormKey(){
+        const form = this.getForm()
+        return form ? form.getModelName() : 'form';
+    }
     getFormItemKey(){
-        let table = this.getTable()
-        let key = this.options.key
-        key = table? `${table.options.key}.${key}`: key
+        let form = this.getForm()
+        let key = this.key
+        key = form? `${form.key}.${key}`: key
         return key
     }
-    
+    findParentByType(type) {
+        if(!this.parent) return null
+        if(this.parent.type === type) {
+            return this.parent
+        }else {
+            return this.parent.findParentByType(type)
+        }
+    }
 }
 module.exports = Component

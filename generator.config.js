@@ -1,6 +1,6 @@
 module.exports = {
     output: {
-        target: '/dist/'
+        target: '/dist/', // 生成页面存放的文件夹路径
     },
     options: {
         dataSuffix: 'List'

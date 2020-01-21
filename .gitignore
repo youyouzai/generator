@@ -1,3 +1,18 @@
 .idea
 node_modules
 
+/dist/components/simple-select/index.vue
+/dist/css/index.css
+/dist/router/index.js
+/dist/views/main/index.vue
+/dist/views/main/tab0.vue
+/dist/views/main/tab1.vue
+/dist/views/main/tab2.vue
+/dist/views/root/index.vue
+/dist/views/root/tab0.vue
+/dist/views/root/tab1.vue
+/dist/views/root/tab2.vue
+/dist/views/根组件/index.vue
+/dist/views/根组件/tab0.vue
+/dist/views/根组件/tab1.vue
+/dist/views/根组件/tab2.vue

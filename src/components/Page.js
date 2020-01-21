@@ -1,42 +1,54 @@
 var Component = require('./Component')
-var Table = require('./Table')
-var Form = require('./Form')
-var Pagination = require('../components/Pagination')
+var factory = require('../utils/componentFactory')
 var manager = require('../utils/componentManager')
-var converter = require('../utils/optionsConverter')
 
 class Page extends Component{
     constructor(options, parent){ 
-        options = converter.initPageOptions(options)
         super(options, parent)
         this.type = 'page'
 
-        this.form = null
-        this.table = null
-        this.injectComponents = options.components || []
+        this.forms = []
+        this.tables = []
+        
         this.injectData ={
             loading: false
         }
         this.injectMethods = {}
         this.injectCreated = {}
         this.injectComputed = {}
+        this.rely = []; // 依赖的组件
+    }
+    init() {
+        super.init()
+        if(!this.forms.length || !this.tables.length) return
+        this.tables.forEach((table, index) => {
+            table.relateForm =  this.forms[index] ? this.forms[index]: this.forms[0]
+        })
+        this.forms.forEach((form, index) => {
+            form.relateTable =  this.tables[index] ? this.tables[index]: this.tables[0]
+        }) 
+    }
+    /**每个表单对应一个table, 按索引位置进行查找 */
+    initRelateTable(page, index){
+        if(page.tables.length === 0) return
+        this.relateTable =  page.tables[index] ? page.tables[index]: page.tables[0]
+    }
+    
+    /**每个表格需要对应一个form, 按索引位置进行查找 */
+    initRelateForm(page, index){
+        if(page.forms.length === 0) return
+        this.relateForm =  page.forms[index] ? page.forms[index]: page.forms[0]
     }
     completed(){
         
     }
     getChildComponentByType(type){
-        let map = {
-            'form': Form,
-            'table': Table,
-            'pagination': Pagination,
-        }
-        return map[type]
+        return factory[type]
     }
     getTemplateHtml(){
         return `<template>
             <div v-loading="loading">
                 ${this.getChildrenTemplateHtml()}
-                ${this.getComponentsHtml()}
             </div>
         </template>
         <script>
@@ -63,17 +75,16 @@ class Page extends Component{
             }
         </script>
         <style lang="less">
-
         </style>`
     }
     getComponentsHtml(){
-        return manager.getComponentsHtml(this.injectComponents)
+        // return manager.getComponentsHtml(this.rely)
     }
     getComponentNamesHtml(){
-        return manager.getComponentNamesHtml(this.injectComponents)
+        return manager.getComponentNamesHtml(this.rely)
     }
     getImportsHtml(){
-        return manager.getImportsHtml(this.injectComponents)
+        return manager.getImportsHtml(this.rely)
     }
     getPropsHtml(){
         return ''
@@ -90,6 +101,6 @@ class Page extends Component{
     getMethodsHtml(){
         return manager.getMethodsHtml(this.injectMethods)
     }
-    
 }
+
 module.exports = Page

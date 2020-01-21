@@ -1,3 +1,4 @@
+var util = require('../utils/util')
 const  abbreviationMap = {
     disabled: true,
     multiple: true,
@@ -5,7 +6,7 @@ const  abbreviationMap = {
 }
 var manager = {
     // 将数据转换成基本数据格式
-    initOptions(options){
+    initOptions(){
 
     },
     initChildrenByField(options, field){
@@ -34,35 +35,40 @@ var manager = {
     },
     getDataHtml(data){
         let str =  JSON.stringify(data)
+        // eslint-disable-next-line
         const result = str.replace(/\"(\w+)*\":/g, function(s, target){
             return target+':'
-        }).replace(/\"/g, '\'')
+        }).replace(/\"/g, '\'')// eslint-disable-line
         return result;
     },
     getComponentsHtml(components){
+        components = util.unique(components);
         let arr =  components.map( name => {
             name = name.replace(/[A-Z]/g, function(s1){
-                return '-' + s2.toLowerCase()
+                return '-' + s1.toLowerCase()
             })
             return `<${name} ></${name}>`
         })
         return this.combinHtmls(arr)
     },
     getComponentNamesHtml(components){
+        components = util.unique(components);
         return components.map( name => {
-            return name.replace(/-([a-zA-Z])/, function(s1,s2){
-                return s2.toUpperCase()
-            })
+            return manager.camelize(name)
         }).join(',')
     },
     getImportsHtml(components){
+        components = util.unique(components);
         let arr = components.map( name => {
-            name = name.replace(/-([a-zA-Z])/, function(s1,s2){
-                return s2.toUpperCase()
-            })
-            return `import ${name} from './components/${name}'`
+            const upperName = manager.camelize(name)
+            return `import ${upperName} from './${name}';`
         })
         return this.combinHtmls(arr)
+    },
+    camelize(str) {
+        return str.replace(/-([a-zA-Z])/g, function(s1,s2){
+            return s2.toUpperCase()
+        })
     },
     getComputedHtml(computedMethods){
         let arr =  Object.values(computedMethods)
@@ -91,7 +97,7 @@ var manager = {
         return result
     },
     combinHtmls(arr){
-        return arr.join('\n').replace(/\"/g, '\'')
+        return arr.join('\n').replace(/\"/g, '\'') // eslint-disable-line
     }
 }
 module.exports = manager

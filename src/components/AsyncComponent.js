@@ -2,6 +2,9 @@ var Component = require('./Component')
 class AsyncComponent extends Component{
     constructor(options, parent){
         super(options, parent)
+        if(!this.defaultValue && this.options.multiple) {
+            this.defaultValue = []
+        }      
     }
     initInjectData(target){
         let model = this.getDataSourceModelName()
@@ -22,7 +25,8 @@ class AsyncComponent extends Component{
         let options = this.options
         let html = `${funcName}(){
             this.$http.get('${options.url}').then(res => {
-                this.${this.getDataSourceModelName()} = res.${options.dataField || this.global.responseDataField}
+                const response = res.data
+                this.${this.getDataSourceModelName()} = response.${options.dataField || this.global.responseDataField}
             });
         },`
         return html

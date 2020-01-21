@@ -11,7 +11,7 @@ class Buttons extends Component{
         for(let i = 0; i<buttons.length; i++){
             let button = buttons[i]
             html += `<el-button
-                size="mini"
+                type="primary"  size="mini"
                 @click="${this.getClickFunctionName(button)}(scope.row, scope.$index)">${button.label}</el-button>`
         }
         html += '</template>'

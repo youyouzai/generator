@@ -7,7 +7,10 @@ class Anchor extends Component{
     }
     getTemplateHtml(){
         let key = this.parent.options.key
-        let html = `<a target="_blank" href="${this.options.url}"> <span>{{ scope.row.${key} }}</span></a>`
+        const hrefHtml = this.options.url ? `href="${this.options.url}"`: ''
+        let html = `<template  slot-scope="scope">
+            <a target="_blank" ${hrefHtml}> <span>{{ scope.row.${key} }}</span></a>
+        </template>`
         return html
     }
 }

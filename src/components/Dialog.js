@@ -21,8 +21,13 @@ class Dialog extends Page{
         }
     }
     initInjectComponents(target){
-        let key = this.options.key || this.global.defaultDialogKey
-        target[key] = key
+        if(target) target.push(this.key);
+    }
+    initInjectComponentNames(target) {
+        if(target) target.push(this.key);
+    }
+    initInjectImports(target){
+        if(target) target.push(this.key);
     }
     getTemplateHtml(){
         let title = this.options.title || '标题'
