@@ -1,30 +1,8 @@
-
-#### 如何使用？
-##### 安装
-```
-npm install egrow-vue-generator --save
-```
-##### 使用配置文件
-1.  generator.config.js为配置项文件
-2.  generator.data.js为数据来源文件
-##### 在scripts中添加命令
-```
-"generate": "generate"
-```
-##### 启动
-```
-npm generate
-```
-#### 发布版本
-```
-npm publish
-```
-#### 启动命令
+## 简介
+generator是[painter](https://github.com/youyouzai/painter)的子组件，通过数据结构生成单个vue文件以及vue工程。生成的vue工程文件如dist文件夹所示。
+## 启动
 ```
 node index.js
 ```
-#### 数据模型文件
-```
-model.js
-```
+
 
