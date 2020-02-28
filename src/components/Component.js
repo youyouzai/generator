@@ -1,8 +1,6 @@
 var util = require('../utils/util')
 
-var {defaultConfig, getRoot} = require('../global')
-var config = require(getRoot + '/generator.config.js')
-
+var {defaultConfig, getRoot, config} = require('../global')
 var globalConfig = null
 class Component{
     constructor(options, parent){
