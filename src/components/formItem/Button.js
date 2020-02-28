@@ -6,7 +6,7 @@ var Component = require('../Component')
 class Button extends Component{
     constructor(options, parent){
         super(options, parent)
-        this.type = 'form-item-buttons'
+        this.type = 'form-item-button'
     }
     
     initInjectMethods(target){

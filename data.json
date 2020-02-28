@@ -1,303 +1,1023 @@
 {
-  "id": 34,
+  "id": 2,
   "componentType": 0,
   "typeName": "根组件",
   "label": "根组件",
   "children": [
     {
-      "id": 32,
+      "id": 0,
       "componentType": 1,
       "typeName": "面板容器",
       "label": "画布组件",
       "children": [
         {
-          "id": 35,
+          "id": 3,
           "componentType": 41,
           "typeName": "页面组",
           "label": "视图",
           "children": [
             {
-              "id": 36,
+              "id": 4,
               "componentType": 0,
               "typeName": "根组件",
-              "label": "component36",
+              "label": "component4",
               "children": [
                 {
-                  "id": 39,
+                  "id": 7,
                   "componentType": 11,
                   "typeName": "表单",
-                  "label": "component39",
+                  "label": "component7",
                   "children": [
                     {
-                      "id": 40,
+                      "id": 8,
                       "componentType": 14,
                       "typeName": "input",
                       "label": "搜索",
                       "children": [],
                       "data": [],
-                      "style": { "borderStyle": "", "borderColor": "", "borderWidth": "", "backgroundColor": "", "color": "" },
+                      "style": {
+                        "borderStyle": "",
+                        "borderColor": "",
+                        "borderWidth": "",
+                        "backgroundColor": "",
+                        "color": ""
+                      },
                       "prop": "text",
                       "type": "text",
                       "placeholder": "请输入内容",
                       "clearable": false,
                       "showPassword": false,
                       "disabled": false
+                    },
+                    {
+                      "id": 9,
+                      "componentType": 16,
+                      "typeName": "button",
+                      "label": "筛选",
+                      "children": [],
+                      "data": [],
+                      "style": {
+                        "borderStyle": "",
+                        "borderColor": "",
+                        "borderWidth": "",
+                        "backgroundColor": "",
+                        "color": ""
+                      },
+                      "type": "danger"
+                    },
+                    {
+                      "id": 10,
+                      "componentType": 16,
+                      "typeName": "button",
+                      "label": "取消筛选",
+                      "children": [],
+                      "data": [],
+                      "style": {
+                        "borderStyle": "",
+                        "borderColor": "",
+                        "borderWidth": "",
+                        "backgroundColor": "",
+                        "color": ""
+                      },
+                      "type": "primary"
                     }
                   ],
                   "data": [],
-                  "style": { "borderStyle": "", "borderColor": "", "borderWidth": "", "backgroundColor": "", "color": "" },
+                  "style": {
+                    "borderStyle": "",
+                    "borderColor": "",
+                    "borderWidth": "",
+                    "backgroundColor": "",
+                    "color": ""
+                  },
                   "prop": "form",
                   "inline": true,
                   "labelWidth": 80
                 },
                 {
-                  "id": 43,
+                  "id": 11,
                   "componentType": 12,
                   "typeName": "表格",
-                  "label": "component43",
+                  "label": "component11",
                   "children": [],
                   "data": [
-                    { "name": "青龙", "profession": "孟章神君", "flag": "青龙为木" },
-                    { "name": "白虎", "profession": "监兵神君", "flag": "白虎为金" },
-                    { "name": "朱雀", "profession": "陵光神君", "flag": "玄武为水" },
-                    { "name": "玄武", "profession": "执明神君", "flag": "中央黄龙为土" }
+                    {
+                      "name": "青龙",
+                      "profession": "孟章神君",
+                      "flag": "青龙为木"
+                    },
+                    {
+                      "name": "白虎",
+                      "profession": "监兵神君",
+                      "flag": "白虎为金"
+                    },
+                    {
+                      "name": "朱雀",
+                      "profession": "陵光神君",
+                      "flag": "玄武为水"
+                    },
+                    {
+                      "name": "玄武",
+                      "profession": "执明神君",
+                      "flag": "中央黄龙为土"
+                    }
                   ],
-                  "style": { "borderStyle": "", "borderColor": "", "borderWidth": "", "backgroundColor": "", "color": "" },
+                  "style": {
+                    "borderStyle": "",
+                    "borderColor": "",
+                    "borderWidth": "",
+                    "backgroundColor": "",
+                    "color": ""
+                  },
                   "prop": "table",
                   "url": "",
                   "showPagination": true,
                   "showHeader": true,
                   "border": true,
                   "columns": [
-                    { "label": "道号", "prop": "name" },
-                    { "label": "封号", "prop": "profession" },
-                    { "label": "四象", "prop": "flag" }
+                    {
+                      "label": "道号",
+                      "prop": "name"
+                    },
+                    {
+                      "label": "封号",
+                      "prop": "profession"
+                    },
+                    {
+                      "label": "四象",
+                      "prop": "flag"
+                    }
                   ]
                 }
               ],
               "data": [],
-              "style": { "borderStyle": "", "borderColor": "", "borderWidth": "", "backgroundColor": "", "color": "" },
+              "style": {
+                "borderStyle": "",
+                "borderColor": "",
+                "borderWidth": "",
+                "backgroundColor": "",
+                "color": ""
+              },
               "menuIndex": "project",
+              "prop": "project"
+            },
+            {
+              "id": 5,
+              "componentType": 0,
+              "typeName": "根组件",
+              "label": "component5",
+              "children": [
+                {
+                  "id": 12,
+                  "componentType": 11,
+                  "typeName": "表单",
+                  "label": "component12",
+                  "children": [
+                    {
+                      "id": 13,
+                      "componentType": 14,
+                      "typeName": "input",
+                      "label": "搜索",
+                      "children": [],
+                      "data": [],
+                      "style": {
+                        "borderStyle": "",
+                        "borderColor": "",
+                        "borderWidth": "",
+                        "backgroundColor": "",
+                        "color": ""
+                      },
+                      "prop": "text",
+                      "type": "text",
+                      "placeholder": "请输入内容",
+                      "clearable": false,
+                      "showPassword": false,
+                      "disabled": false
+                    },
+                    {
+                      "id": 16,
+                      "componentType": 14,
+                      "typeName": "input",
+                      "label": "文本：",
+                      "children": [],
+                      "data": [],
+                      "style": {
+                        "borderStyle": "",
+                        "borderColor": "",
+                        "borderWidth": "",
+                        "backgroundColor": "",
+                        "color": ""
+                      },
+                      "prop": "text",
+                      "type": "text",
+                      "placeholder": "请输入内容",
+                      "clearable": false,
+                      "showPassword": false,
+                      "disabled": false
+                    },
+                    {
+                      "id": 17,
+                      "componentType": 15,
+                      "typeName": "date",
+                      "label": "日期：",
+                      "children": [],
+                      "data": [],
+                      "style": {
+                        "borderStyle": "",
+                        "borderColor": "",
+                        "borderWidth": "",
+                        "backgroundColor": "",
+                        "color": ""
+                      },
+                      "prop": "date",
+                      "type": "date"
+                    },
+                    {
+                      "id": 18,
+                      "componentType": 13,
+                      "typeName": "select",
+                      "label": "select",
+                      "children": [],
+                      "data": [
+                        {
+                          "value": "选项1",
+                          "label": "黄金糕"
+                        },
+                        {
+                          "value": "选项2",
+                          "label": "双皮奶"
+                        },
+                        {
+                          "value": "选项3",
+                          "label": "蚵仔煎"
+                        }
+                      ],
+                      "style": {
+                        "borderStyle": "",
+                        "borderColor": "",
+                        "borderWidth": "",
+                        "backgroundColor": "",
+                        "color": ""
+                      },
+                      "prop": "select",
+                      "url": "",
+                      "multiple": true,
+                      "labelField": "label",
+                      "valueField": "value"
+                    }
+                  ],
+                  "data": [],
+                  "style": {
+                    "borderStyle": "",
+                    "borderColor": "",
+                    "borderWidth": "",
+                    "backgroundColor": "",
+                    "color": ""
+                  },
+                  "prop": "form",
+                  "inline": true,
+                  "labelWidth": 80
+                },
+                {
+                  "id": 19,
+                  "componentType": 6,
+                  "typeName": "容器",
+                  "label": "component19",
+                  "children": [
+                    {
+                      "id": 20,
+                      "componentType": 51,
+                      "typeName": "折线图",
+                      "label": "折线图",
+                      "children": [],
+                      "data": [
+                        {
+                          "value1": 34,
+                          "value2": 24,
+                          "time": "Mon"
+                        },
+                        {
+                          "value1": 34,
+                          "value2": 24,
+                          "time": "Tue"
+                        },
+                        {
+                          "value1": 34,
+                          "value2": 24,
+                          "time": "Wed"
+                        },
+                        {
+                          "value1": 24,
+                          "value2": 24,
+                          "time": "Thu"
+                        }
+                      ],
+                      "style": {
+                        "borderStyle": "",
+                        "borderColor": "",
+                        "borderWidth": "",
+                        "backgroundColor": "",
+                        "color": ""
+                      },
+                      "prop": "line-chart",
+                      "type": "line",
+                      "url": "",
+                      "xAxisField": "time",
+                      "series": [
+                        {
+                          "type": "bar",
+                          "labelField": "中国",
+                          "valueField": "value1"
+                        },
+                        {
+                          "type": "line",
+                          "labelField": "美国",
+                          "valueField": "value2"
+                        }
+                      ]
+                    }
+                  ],
+                  "data": [],
+                  "style": {
+                    "borderStyle": "solid",
+                    "borderColor": "#ebeef5",
+                    "borderWidth": "1px",
+                    "width": "auto",
+                    "height": "auto",
+                    "color": ""
+                  }
+                }
+              ],
+              "data": [],
+              "style": {
+                "borderStyle": "",
+                "borderColor": "",
+                "borderWidth": "",
+                "backgroundColor": "",
+                "color": ""
+              },
+              "menuIndex": "library",
+              "prop": "library"
+            },
+            {
+              "id": 6,
+              "componentType": 0,
+              "typeName": "根组件",
+              "label": "component6",
+              "children": [
+                {
+                  "id": 21,
+                  "componentType": 53,
+                  "typeName": "柱状图",
+                  "label": "柱状图",
+                  "children": [],
+                  "data": [
+                    {
+                      "value1": 34,
+                      "value2": 24,
+                      "time": "Mon"
+                    },
+                    {
+                      "value1": 34,
+                      "value2": 24,
+                      "value3": 124,
+                      "time": "Tue"
+                    },
+                    {
+                      "value1": 34,
+                      "value2": 24,
+                      "value3": 124,
+                      "time": "Wed"
+                    },
+                    {
+                      "value1": 24,
+                      "value2": 24,
+                      "value3": 124,
+                      "time": "Thu"
+                    }
+                  ],
+                  "style": {
+                    "borderStyle": "",
+                    "borderColor": "",
+                    "borderWidth": "",
+                    "backgroundColor": "",
+                    "color": ""
+                  },
+                  "prop": "bar-chart",
+                  "type": "bar",
+                  "url": "",
+                  "xAxisField": "time",
+                  "series": [
+                    {
+                      "type": "bar",
+                      "labelField": "邮件营销",
+                      "valueField": "value1",
+                      "stack": "广告"
+                    },
+                    {
+                      "type": "bar",
+                      "labelField": "联盟广告",
+                      "valueField": "value2",
+                      "stack": "广告"
+                    },
+                    {
+                      "type": "bar",
+                      "labelField": "视频广告",
+                      "valueField": "value3"
+                    }
+                  ]
+                }
+              ],
+              "data": [],
+              "style": {
+                "borderStyle": "",
+                "borderColor": "",
+                "borderWidth": "",
+                "backgroundColor": "",
+                "color": ""
+              },
+              "menuIndex": "configuration",
               "prop": "configuration"
-            },
-            {
-              "id": 37,
-              "componentType": 0,
-              "typeName": "根组件",
-              "label": "component37",
-              "children": [
-                {
-                  "id": 44,
-                  "componentType": 17,
-                  "typeName": "label",
-                  "label": "标签",
-                  "children": [],
-                  "data": [],
-                  "style": { "borderStyle": "", "borderColor": "", "borderWidth": "", "backgroundColor": "", "color": "" }
-                }
-              ],
-              "data": [],
-              "style": { "borderStyle": "", "borderColor": "", "borderWidth": "", "backgroundColor": "", "color": "" },
-              "menuIndex": "library"
-            },
-            {
-              "id": 38,
-              "componentType": 0,
-              "typeName": "根组件",
-              "label": "component38",
-              "children": [
-                {
-                  "id": 45,
-                  "componentType": 16,
-                  "typeName": "button",
-                  "label": "查询",
-                  "children": [],
-                  "data": [],
-                  "style": { "borderStyle": "", "borderColor": "", "borderWidth": "", "backgroundColor": "", "color": "" },
-                  "type": "primary"
-                }
-              ],
-              "data": [],
-              "style": { "borderStyle": "", "borderColor": "", "borderWidth": "", "backgroundColor": "", "color": "" },
-              "menuIndex": "configuration"
             }
           ],
           "data": [],
-          "style": { "borderStyle": "", "borderColor": "", "borderWidth": "", "backgroundColor": "", "color": "" },
+          "style": {
+            "borderStyle": "",
+            "borderColor": "",
+            "borderWidth": "",
+            "backgroundColor": "",
+            "color": ""
+          },
           "prop": "page",
           "type": "page",
           "mode": "vertical",
           "menus": [
-            { "label": "无边海", "index": "sea", "children": [{ "label": "火阗真人", "index": "project", "icon": "el-icon-menu", "nodeId": 36 }] },
-            { "label": "万妖窟", "index": "library", "icon": "el-icon-s-grid", "nodeId": 37 },
-            { "label": "九云洞", "index": "configuration", "icon": "el-icon-s-tools", "nodeId": 38 }
+            {
+              "label": "无边海",
+              "index": "sea",
+              "children": [
+                {
+                  "label": "火阗真人",
+                  "index": "project",
+                  "icon": "el-icon-menu",
+                  "nodeId": 4
+                }
+              ]
+            },
+            {
+              "label": "万妖窟",
+              "index": "library",
+              "icon": "el-icon-s-grid",
+              "nodeId": 5
+            },
+            {
+              "label": "九云洞",
+              "index": "configuration",
+              "icon": "el-icon-s-tools",
+              "nodeId": 6
+            }
           ]
         }
       ],
       "data": [],
-      "style": { "borderStyle": "", "borderColor": "", "borderWidth": "", "backgroundColor": "", "color": "" },
+      "style": {
+        "borderStyle": "",
+        "borderColor": "",
+        "borderWidth": "",
+        "backgroundColor": "",
+        "color": ""
+      },
       "type": "panel-node",
       "prop": "panel"
     },
     {
-      "id": 33,
+      "id": 1,
       "componentType": 2,
       "typeName": "弹出框容器",
       "label": "弹出框集合",
       "children": [],
       "data": [],
-      "style": { "borderStyle": "", "borderColor": "", "borderWidth": "", "backgroundColor": "", "color": "" },
+      "style": {
+        "borderStyle": "",
+        "borderColor": "",
+        "borderWidth": "",
+        "backgroundColor": "",
+        "color": ""
+      },
       "type": "dialog-group",
       "prop": "dialogs"
     }
   ],
   "data": [],
-  "style": { "borderStyle": "", "borderColor": "", "borderWidth": "", "backgroundColor": "", "color": "" },
+  "style": {
+    "borderStyle": "",
+    "borderColor": "",
+    "borderWidth": "",
+    "backgroundColor": "",
+    "color": ""
+  },
   "type": "root",
   "prop": "main",
   "panelNode": {
-    "id": 32,
+    "id": 0,
     "componentType": 1,
     "typeName": "面板容器",
     "label": "画布组件",
     "children": [
       {
-        "id": 35,
+        "id": 3,
         "componentType": 41,
         "typeName": "页面组",
         "label": "视图",
         "children": [
           {
-            "id": 36,
+            "id": 4,
             "componentType": 0,
             "typeName": "根组件",
-            "label": "project",
+            "label": "component4",
             "children": [
               {
-                "id": 39,
+                "id": 7,
                 "componentType": 11,
                 "typeName": "表单",
-                "label": "component39",
+                "label": "component7",
                 "children": [
                   {
-                    "id": 40,
+                    "id": 8,
                     "componentType": 14,
                     "typeName": "input",
                     "label": "搜索",
                     "children": [],
                     "data": [],
-                    "style": { "borderStyle": "", "borderColor": "", "borderWidth": "", "backgroundColor": "", "color": "" },
+                    "style": {
+                      "borderStyle": "",
+                      "borderColor": "",
+                      "borderWidth": "",
+                      "backgroundColor": "",
+                      "color": ""
+                    },
                     "prop": "text",
                     "type": "text",
                     "placeholder": "请输入内容",
                     "clearable": false,
                     "showPassword": false,
                     "disabled": false
+                  },
+                  {
+                    "id": 9,
+                    "componentType": 16,
+                    "typeName": "button",
+                    "label": "筛选",
+                    "children": [],
+                    "data": [],
+                    "style": {
+                      "borderStyle": "",
+                      "borderColor": "",
+                      "borderWidth": "",
+                      "backgroundColor": "",
+                      "color": ""
+                    },
+                    "type": "danger"
+                  },
+                  {
+                    "id": 10,
+                    "componentType": 16,
+                    "typeName": "button",
+                    "label": "取消筛选",
+                    "children": [],
+                    "data": [],
+                    "style": {
+                      "borderStyle": "",
+                      "borderColor": "",
+                      "borderWidth": "",
+                      "backgroundColor": "",
+                      "color": ""
+                    },
+                    "type": "primary"
                   }
                 ],
                 "data": [],
-                "style": { "borderStyle": "", "borderColor": "", "borderWidth": "", "backgroundColor": "", "color": "" },
+                "style": {
+                  "borderStyle": "",
+                  "borderColor": "",
+                  "borderWidth": "",
+                  "backgroundColor": "",
+                  "color": ""
+                },
                 "prop": "form",
                 "inline": true,
                 "labelWidth": 80
               },
               {
-                "id": 43,
+                "id": 11,
                 "componentType": 12,
                 "typeName": "表格",
-                "label": "component43",
+                "label": "component11",
                 "children": [],
                 "data": [
-                  { "name": "青龙", "profession": "孟章神君", "flag": "青龙为木" },
-                  { "name": "白虎", "profession": "监兵神君", "flag": "白虎为金" },
-                  { "name": "朱雀", "profession": "陵光神君", "flag": "玄武为水" },
-                  { "name": "玄武", "profession": "执明神君", "flag": "中央黄龙为土" }
+                  {
+                    "name": "青龙",
+                    "profession": "孟章神君",
+                    "flag": "青龙为木"
+                  },
+                  {
+                    "name": "白虎",
+                    "profession": "监兵神君",
+                    "flag": "白虎为金"
+                  },
+                  {
+                    "name": "朱雀",
+                    "profession": "陵光神君",
+                    "flag": "玄武为水"
+                  },
+                  {
+                    "name": "玄武",
+                    "profession": "执明神君",
+                    "flag": "中央黄龙为土"
+                  }
                 ],
-                "style": { "borderStyle": "", "borderColor": "", "borderWidth": "", "backgroundColor": "", "color": "" },
+                "style": {
+                  "borderStyle": "",
+                  "borderColor": "",
+                  "borderWidth": "",
+                  "backgroundColor": "",
+                  "color": ""
+                },
                 "prop": "table",
                 "url": "",
                 "showPagination": true,
                 "showHeader": true,
                 "border": true,
                 "columns": [
-                  { "label": "道号", "prop": "name" },
-                  { "label": "封号", "prop": "profession" },
-                  { "label": "四象", "prop": "flag" }
+                  {
+                    "label": "道号",
+                    "prop": "name"
+                  },
+                  {
+                    "label": "封号",
+                    "prop": "profession"
+                  },
+                  {
+                    "label": "四象",
+                    "prop": "flag"
+                  }
                 ]
               }
             ],
             "data": [],
-            "style": { "borderStyle": "", "borderColor": "", "borderWidth": "", "backgroundColor": "", "color": "" },
+            "style": {
+              "borderStyle": "",
+              "borderColor": "",
+              "borderWidth": "",
+              "backgroundColor": "",
+              "color": ""
+            },
             "menuIndex": "project",
             "prop": "project"
           },
           {
-            "id": 37,
+            "id": 5,
             "componentType": 0,
             "typeName": "根组件",
-            "label": "library",
+            "label": "component5",
             "children": [
               {
-                "id": 44,
-                "componentType": 17,
-                "typeName": "label",
-                "label": "标签",
-                "children": [],
+                "id": 12,
+                "componentType": 11,
+                "typeName": "表单",
+                "label": "component12",
+                "children": [
+                  {
+                    "id": 13,
+                    "componentType": 14,
+                    "typeName": "input",
+                    "label": "搜索",
+                    "children": [],
+                    "data": [],
+                    "style": {
+                      "borderStyle": "",
+                      "borderColor": "",
+                      "borderWidth": "",
+                      "backgroundColor": "",
+                      "color": ""
+                    },
+                    "prop": "text",
+                    "type": "text",
+                    "placeholder": "请输入内容",
+                    "clearable": false,
+                    "showPassword": false,
+                    "disabled": false
+                  },
+                  {
+                    "id": 16,
+                    "componentType": 14,
+                    "typeName": "input",
+                    "label": "文本：",
+                    "children": [],
+                    "data": [],
+                    "style": {
+                      "borderStyle": "",
+                      "borderColor": "",
+                      "borderWidth": "",
+                      "backgroundColor": "",
+                      "color": ""
+                    },
+                    "prop": "text",
+                    "type": "text",
+                    "placeholder": "请输入内容",
+                    "clearable": false,
+                    "showPassword": false,
+                    "disabled": false
+                  },
+                  {
+                    "id": 17,
+                    "componentType": 15,
+                    "typeName": "date",
+                    "label": "日期：",
+                    "children": [],
+                    "data": [],
+                    "style": {
+                      "borderStyle": "",
+                      "borderColor": "",
+                      "borderWidth": "",
+                      "backgroundColor": "",
+                      "color": ""
+                    },
+                    "prop": "date",
+                    "type": "date"
+                  },
+                  {
+                    "id": 18,
+                    "componentType": 13,
+                    "typeName": "select",
+                    "label": "select",
+                    "children": [],
+                    "data": [
+                      {
+                        "value": "选项1",
+                        "label": "黄金糕"
+                      },
+                      {
+                        "value": "选项2",
+                        "label": "双皮奶"
+                      },
+                      {
+                        "value": "选项3",
+                        "label": "蚵仔煎"
+                      }
+                    ],
+                    "style": {
+                      "borderStyle": "",
+                      "borderColor": "",
+                      "borderWidth": "",
+                      "backgroundColor": "",
+                      "color": ""
+                    },
+                    "prop": "select",
+                    "url": "",
+                    "multiple": true,
+                    "labelField": "label",
+                    "valueField": "value"
+                  }
+                ],
                 "data": [],
-                "style": { "borderStyle": "", "borderColor": "", "borderWidth": "", "backgroundColor": "", "color": "" }
+                "style": {
+                  "borderStyle": "",
+                  "borderColor": "",
+                  "borderWidth": "",
+                  "backgroundColor": "",
+                  "color": ""
+                },
+                "prop": "form",
+                "inline": true,
+                "labelWidth": 80
+              },
+              {
+                "id": 19,
+                "componentType": 6,
+                "typeName": "容器",
+                "label": "component19",
+                "children": [
+                  {
+                    "id": 20,
+                    "componentType": 51,
+                    "typeName": "折线图",
+                    "label": "折线图",
+                    "children": [],
+                    "data": [
+                      {
+                        "value1": 34,
+                        "value2": 24,
+                        "time": "Mon"
+                      },
+                      {
+                        "value1": 34,
+                        "value2": 24,
+                        "time": "Tue"
+                      },
+                      {
+                        "value1": 34,
+                        "value2": 24,
+                        "time": "Wed"
+                      },
+                      {
+                        "value1": 24,
+                        "value2": 24,
+                        "time": "Thu"
+                      }
+                    ],
+                    "style": {
+                      "borderStyle": "",
+                      "borderColor": "",
+                      "borderWidth": "",
+                      "backgroundColor": "",
+                      "color": ""
+                    },
+                    "prop": "line-chart",
+                    "type": "line",
+                    "url": "",
+                    "xAxisField": "time",
+                    "series": [
+                      {
+                        "type": "bar",
+                        "labelField": "中国",
+                        "valueField": "value1"
+                      },
+                      {
+                        "type": "line",
+                        "labelField": "美国",
+                        "valueField": "value2"
+                      }
+                    ]
+                  }
+                ],
+                "data": [],
+                "style": {
+                  "borderStyle": "solid",
+                  "borderColor": "#ebeef5",
+                  "borderWidth": "1px",
+                  "width": "auto",
+                  "height": "auto",
+                  "color": ""
+                }
               }
             ],
             "data": [],
-            "style": { "borderStyle": "", "borderColor": "", "borderWidth": "", "backgroundColor": "", "color": "" },
-            "menuIndex": "library"
+            "style": {
+              "borderStyle": "",
+              "borderColor": "",
+              "borderWidth": "",
+              "backgroundColor": "",
+              "color": ""
+            },
+            "menuIndex": "library",
+            "prop": "library"
           },
           {
-            "id": 38,
+            "id": 6,
             "componentType": 0,
             "typeName": "根组件",
-            "label": "configuration",
+            "label": "component6",
             "children": [
               {
-                "id": 45,
-                "componentType": 16,
-                "typeName": "button",
-                "label": "查询",
+                "id": 21,
+                "componentType": 53,
+                "typeName": "柱状图",
+                "label": "柱状图",
                 "children": [],
-                "data": [],
-                "style": { "borderStyle": "", "borderColor": "", "borderWidth": "", "backgroundColor": "", "color": "" },
-                "type": "primary"
+                "data": [
+                  {
+                    "value1": 34,
+                    "value2": 24,
+                    "time": "Mon"
+                  },
+                  {
+                    "value1": 34,
+                    "value2": 24,
+                    "value3": 124,
+                    "time": "Tue"
+                  },
+                  {
+                    "value1": 34,
+                    "value2": 24,
+                    "value3": 124,
+                    "time": "Wed"
+                  },
+                  {
+                    "value1": 24,
+                    "value2": 24,
+                    "value3": 124,
+                    "time": "Thu"
+                  }
+                ],
+                "style": {
+                  "borderStyle": "",
+                  "borderColor": "",
+                  "borderWidth": "",
+                  "backgroundColor": "",
+                  "color": ""
+                },
+                "prop": "bar-chart",
+                "type": "bar",
+                "url": "",
+                "xAxisField": "time",
+                "series": [
+                  {
+                    "type": "bar",
+                    "labelField": "邮件营销",
+                    "valueField": "value1",
+                    "stack": "广告"
+                  },
+                  {
+                    "type": "bar",
+                    "labelField": "联盟广告",
+                    "valueField": "value2",
+                    "stack": "广告"
+                  },
+                  {
+                    "type": "bar",
+                    "labelField": "视频广告",
+                    "valueField": "value3"
+                  }
+                ]
               }
             ],
             "data": [],
-            "style": { "borderStyle": "", "borderColor": "", "borderWidth": "", "backgroundColor": "", "color": "" },
-            "menuIndex": "configuration"
+            "style": {
+              "borderStyle": "",
+              "borderColor": "",
+              "borderWidth": "",
+              "backgroundColor": "",
+              "color": ""
+            },
+            "menuIndex": "configuration",
+            "prop": "configuration"
           }
         ],
         "data": [],
-        "style": { "borderStyle": "", "borderColor": "", "borderWidth": "", "backgroundColor": "", "color": "" },
+        "style": {
+          "borderStyle": "",
+          "borderColor": "",
+          "borderWidth": "",
+          "backgroundColor": "",
+          "color": ""
+        },
         "prop": "page",
         "type": "page",
         "mode": "vertical",
         "menus": [
-          { "label": "无边海", "index": "sea", "children": [{ "label": "火阗真人", "index": "project", "icon": "el-icon-menu", "nodeId": 36 }] },
-          { "label": "万妖窟", "index": "library", "icon": "el-icon-s-grid", "nodeId": 37 },
-          { "label": "九云洞", "index": "configuration", "icon": "el-icon-s-tools", "nodeId": 38 }
+          {
+            "label": "无边海",
+            "index": "sea",
+            "children": [
+              {
+                "label": "火阗真人",
+                "index": "project",
+                "icon": "el-icon-menu",
+                "nodeId": 4
+              }
+            ]
+          },
+          {
+            "label": "万妖窟",
+            "index": "library",
+            "icon": "el-icon-s-grid",
+            "nodeId": 5
+          },
+          {
+            "label": "九云洞",
+            "index": "configuration",
+            "icon": "el-icon-s-tools",
+            "nodeId": 6
+          }
         ]
       }
     ],
     "data": [],
-    "style": { "borderStyle": "", "borderColor": "", "borderWidth": "", "backgroundColor": "", "color": "" },
+    "style": {
+      "borderStyle": "",
+      "borderColor": "",
+      "borderWidth": "",
+      "backgroundColor": "",
+      "color": ""
+    },
     "type": "panel-node",
     "prop": "panel"
   },
   "dialogGroupNode": {
-    "id": 33,
+    "id": 1,
     "componentType": 2,
     "typeName": "弹出框容器",
     "label": "弹出框集合",
     "children": [],
     "data": [],
-    "style": { "borderStyle": "", "borderColor": "", "borderWidth": "", "backgroundColor": "", "color": "" },
+    "style": {
+      "borderStyle": "",
+      "borderColor": "",
+      "borderWidth": "",
+      "backgroundColor": "",
+      "color": ""
+    },
     "type": "dialog-group",
     "prop": "dialogs"
   }

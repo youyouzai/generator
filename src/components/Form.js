@@ -21,7 +21,22 @@ class Form extends Component{
     } 
     initChildren() {
         super.initChildren()
-        this.initBtns()
+        // 若form里面无btn按钮，则初始化筛选/重置按钮
+        if(!this.hasBtn()) {
+            this.initBtns()
+        }
+    }
+    isBtn(item) {
+        return item.type=== 'form-item-button'
+    }
+    hasBtn() {
+        if(!this.children) return true;
+        for(let i = this.children.length -1; i >= 0; i--) {
+            if(this.isBtn(this.children[i])){
+                return true
+            }
+        }
+        return false
     }
     initBtns(){
         // 添加confirm按钮
@@ -77,8 +92,8 @@ class Form extends Component{
             <el-form ref="${model}" inline :model="${model}" ${rulesHtml}>
                 ${childHtml}
                 <el-form-item>
-                ${this.confirmBtn.getTemplateHtml()}
-                ${this.cancelBtn.getTemplateHtml()}
+                ${this.confirmBtn ? this.confirmBtn.getTemplateHtml() : ''}
+                ${this.cancelBtn ? this.cancelBtn.getTemplateHtml():''}
                 </el-form-item>
             </el-form>
         </div>`
@@ -92,7 +107,7 @@ class Form extends Component{
     }
     getItemTemplateHtml(item){
         const options = item.options
-        let labelHtml = options.label? `label="${options.label}"` : ''
+        let labelHtml = this.isBtn(item) || !options.label? '' : `label="${options.label}"`
         let propHtml = options.prop? `prop="${options.prop}"`: ''
         let content =  `<el-form-item  ${labelHtml} ${propHtml}>
             ${item.getTemplateHtml()}
@@ -114,8 +129,12 @@ class Form extends Component{
             target[this.getRulesModelName()] = this.validataor
         }
 
-        this.confirmBtn.initInjectData(target)
-        this.cancelBtn.initInjectData(target)
+        if(this.confirmBtn){
+            this.confirmBtn.initInjectData(target)
+        }
+        if(this.cancelBtn){
+            this.cancelBtn.initInjectData(target)
+        }
     }
     getDefaultValue(item) {
         let defaultValue = item.defaultValue
@@ -126,8 +145,12 @@ class Form extends Component{
         return defaultValue
     }
     initInjectMethods(target){
-        this.confirmBtn.initInjectMethods(target)
-        this.cancelBtn.initInjectMethods(target)
+        if(this.confirmBtn){
+            this.confirmBtn.initInjectMethods(target)
+        }
+        if(this.cancelBtn){
+            this.cancelBtn.initInjectMethods(target)
+        }
     }
 }
 module.exports = Form
