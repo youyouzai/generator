@@ -16,8 +16,10 @@ class Router{
         })
         const rootFiles = []
         this.files.forEach((file)=> {
-            const fatherPath = file.filePath.substring(0, file.filePath.lastIndexOf('/'))
-            if(fileMap[fatherPath]) {
+            let fatherPath = file.filePath.substring(0, file.filePath.lastIndexOf('/'))
+            const fatherIndexFilePath = fatherPath.substring(0, fatherPath.lastIndexOf('/'))
+            const fatherPaths = [fatherPath, `${fatherIndexFilePath}/index.vue`]
+            if(fatherPath = contains(fileMap, fatherPaths)) {
                 if(fileMap[fatherPath].children) {
                     fileMap[fatherPath].children.push(file)
                 }else {
@@ -58,11 +60,12 @@ class Router{
     getRelativePath(file) {
         return file.filePath.substring(file.filePath.indexOf('src') + 3)
     }
-    getRoutesCode(file, children) {
+    getRoutesCode(file) {
         const componentName = this.getComponentName(file)
         const relativePath = this.getRelativePath(file)
         const path = this.getRouterPath(relativePath);
         const name = file.fileName
+        const children = file.children
         let childHtml = ''
         if(children && children.length) {
             children.forEach((child) => {
@@ -83,5 +86,14 @@ class Router{
             return p1
         });
     }
+}
+function contains(map, arr) {
+    if(!arr || !arr.length) return false
+    for(let i = 0; i< arr.length; i++) {
+        if(map[arr[i]] !== undefined){
+            return arr[i]
+        }
+    }
+    return null
 }
 module.exports = Router

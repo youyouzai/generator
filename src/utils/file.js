@@ -87,7 +87,7 @@ class FileUtil {
         try{
           fs.rmdirSync(path);
         }catch(err) {
-          console.log(err)
+          // do nothing
         }  
     }
   }
